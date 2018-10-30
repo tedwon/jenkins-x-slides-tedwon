@@ -1,3 +1,5 @@
+:toc:
+
 = Jenkins X
 
 automated CI/CD for cloud native apps on Kubernetes
@@ -15,9 +17,15 @@ tedwon <jwon@redhat.com>
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
+
+== Jenkins vs Jenkis X
+
 == Jenkins
 
-image::jenkins.png[width="400"]
+[%step]
+* https://jenkins.io/
+
+image::jenkins.png[width="300"]
 
 
 == Jenkins X
@@ -25,152 +33,106 @@ image::jenkins.png[width="400"]
 [%step]
 * https://jenkins-x.io/
 
-image::jenkinsx.png[width="400"]
+image::jenkinsx.png[width="300"]
 
 
-== Jenkins X -  JBUG Hands-on
-
-* https://goo.gl/oBbHxA
-
-
-== James Strachan
-
-image::jstrachan.png[width="400"]
-
-
-== James Strachan
-
-“The idea of Jenkins X is to give all developers their own naval seafaring butler that can help you sail the seas of continuous delivery.” [1]
-
-
-== James Strachan
-
-“Jenkins X의 아이디어는 모든 개발자에게 해군 항해에 필요한 집사를 제공하여 지속적으로 바다를 항해하는 데 도움을주는 것입니다.” [1]
-
-
-== James Strachan
+== Transformation of Development Platform
 
 [%step]
-* Created by James Strachan
-* Released March of this year
+* Move from on premise to cloud
+* Move from VMs to containers
+* Immutable infrastructure for DevOps
+* Kubernetes has become the defacto standard
+* Move from monoliths to microservices
+* Become high performing teams via CI/CD
+
+
+== What are the challenges?
+
+[%step]
+* How do I migrate my applications to the cloud?
+* How do dev teams work with Kubernetes?
+* What do I need to start developing, building and deploying?
+* How do I wire everything together?
+* How do I access my applications?
+
+
+== Started by James Strachan
+
+[%step]
+* Released at March of this year, 2018
 ** https://twitter.com/jstrachan/status/975796722147438598
 ** https://goo.gl/ceLcmq
-** Groovy
-** Apache ActiveMQ/Camel
 ** https://github.com/jenkins-x/jx/graphs/contributors
-** https://www.linkedin.com/in/jstrachan/
-** link:https://en.wikipedia.org/wiki/James_Strachan_(programmer)[]
-** https://medium.com/@jstrachan
-** https://www.openhub.net/accounts/jstrachan
+* Founder of Groovy, Apache ActiveMQ/Camel
+*** https://www.linkedin.com/in/jstrachan/
+*** https://medium.com/@jstrachan
 
 
-== James Strachan
+== Started by James Strachan
 
 [%step]
-* Developed similar project in Red Hat until 2017
+* Developed similar project in Red Hat until last year, 2017
 ** https://goo.gl/4re3G7
-* Fabric8 Microservices Platform
+* gofabric8
 ** http://fabric8.io/
-*** https://fabric8.io/guide/fabric8DevOps.html
+*** https://github.com/fabric8io/gofabric8
 
 
-== Introduction
+== Features of Jenkins X
 
 [%step]
-* https://jenkins.io/projects/jenkins-x/
-** JEP-400
-*** https://github.com/jenkinsci/jep/tree/master/jep/400
 * Automated CI and CD
-* Applications, Environments and Promotion
+* Environment Promotion via GitOps
 * Pull Request Preview Environments
 * Feedback on Issues and Pull Requests
-* https://github.com/jenkins-x/jx
-* Golang
-** https://github.com/jenkins-x/jx/tree/master/pkg/jx/cmd
-
-== Personal Benefits by Jenkins X
-
-[%step]
-* Getting more familiar with Cloud(Kubernetes/OpenShift)
-* Help to rapidly create, deploy and manage cloud native applications on Kubernetes.
-* Learn CI/CD basic practices
 
 
-== Personal Benefits by Jenkins X
+[NOTE.speaker]
+--
+* Automated CI and CD
+** Rather than having to have deep knowledge of the internals of Jenkins Pipeline, Jenkins X will default awesome pipelines for your projects that implements fully CI and CD
 
-[%step]
-* Guided delivery workflows for cloud native applications on Kubernetes
-* A single pane of glass to view and manage application delivery with promotion, deployment and auditing
-* Built-in integrations with best-of-breed tools
+* Environment Promotion via GitOps
+** Each team gets a set of Environments. Jenkins X then automates the management of the Environments and the Promotion of new versions of Applications between Environments via GitOps
 
+* Pull Request Preview Environments
+** Jenkins X automatically spins up Preview Environments for your Pull Requests so you can get fast feedback before changes are merged to master
 
-== What does that give me?
-
-[%step]
-* Each dev team gets their own:
-* Development Tools Environment
-** Jenkins master
-** Elastic pool of Kubernetes build pods(agents)
-** Nexus + Chartmuseum + Monocular (helm application store)
-* Staging Environment
-* Production Environment
+* Feedback on Issues and Pull Requests
+** Jenkins X automatically comments on your Commits, Issues and Pull Requests with feedback as code is ready to be previewed, is promoted to environments or if Pull Requests are generated automatically to upgrade versions.
+--
 
 
-== How does Jenkins X help?
-
-[%step]
-* Automates the installation/upgrade of tools
-** Helm, Skaffold, Kaniko, Jenkins, KSync, Monocular, Nexus etc
-** All configured + optimised for Kubernetes OOTB
-* Automates CI/CD for your applications on Kubernetes
-** Docker images
-** Helm charts
-** Pipelines
-
-
-== How does Jenkins X help?
-
-[%step]
-* Uses GitOps to manage promotion between environments
-** Test -> Staging -> Production
-* Lots of feedback
-** E.g. commenting on issues as they hit Staging + Production
-
-
-== Environments in Kubernetes
-
-image::env.png[]
-
-
-== jx Commands
-
-* https://jenkins-x.io/commands/jx/
-
-
-== Cloud Providers
+== Supported Cloud Providers
 
 ----
 $ jx help create cluster
-
-    * aks (Azure Container Service - https://docs.microsoft.com/en-us/azure/aks)
-    * aws (Amazon Web Services via kops - https://github.com/aws-samples/aws-workshop-for-kubernetes/blob/master/readme.adoc)
-    * eks (Amazon Web Services Elastic Container Service for Kubernetes - https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
-    * gke (Google Container Engine - https://cloud.google.com/kubernetes-engine)
-    * iks (IBM Cloud Kubernetes Service - https://console.bluemix.net/docs/containers)
-    * oke (Oracle Cloud Infrastructure Container Engine for Kubernetes - https://docs.cloud.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm)
-    * kubernetes for custom installations of Kubernetes
-    * minikube (single-node Kubernetes cluster inside a VM on your laptop)
-	* minishift (single-node OpenShift cluster inside a VM on your laptop)
-	* openshift for installing on 3.9.x or later clusters of OpenShift
 ----
 
-== Jenkins X, X means...
+* Google Container Engine
+* OpenShift
+* Amazon Elastic Container Service
+* Azure Container Service
+* IBM Cloud Kubernetes Service
+* Oracle Cloud Container Engine
 
-* Jenkins + other apps
-* https://jenkins-x.io 
+[NOTE.speaker]
+--
+* aks (Azure Container Service - https://docs.microsoft.com/en-us/azure/aks)
+* aws (Amazon Web Services via kops - https://github.com/aws-samples/aws-workshop-for-kubernetes/blob/master/readme.adoc)
+* eks (Amazon Web Services Elastic Container Service for Kubernetes - https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
+* gke (Google Container Engine - https://cloud.google.com/kubernetes-engine)
+* iks (IBM Cloud Kubernetes Service - https://console.bluemix.net/docs/containers)
+* oke (Oracle Cloud Infrastructure Container Engine for Kubernetes - https://docs.cloud.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm)
+* kubernetes for custom installations of Kubernetes
+* minikube (single-node Kubernetes cluster inside a VM on your laptop)
+* minishift (single-node OpenShift cluster inside a VM on your laptop)
+* openshift for installing on 3.9.x or later clusters of OpenShift
+--
 
 
-== Jenkins X, X means...
+== How does Jenkins X help?
 
 [%step]
 * Jenkins
@@ -178,42 +140,66 @@ $ jx help create cluster
 * Nexus
 ** Artifact repository
 * https://helm.sh
-** package manager for Kubernetes
+** Package manager for Kubernetes
 * Chartmuseum
 ** Helm Chart repository
 
 
-[NOTE.speaker]
---
-Helm is ...
-Helm Chart is ...
---
-
-== Jenkins X, X means...
+== How does Jenkins X help?
 
 [%step]
 * Monocular
 ** Web UI for helm charts
 * https://draft.sh
+* Skaffold
+
+[NOTE.speaker]
+--
+* Jenkins
+** CI/CD pipeline solution
+* Nexus
+** Artifact repository
+* https://helm.sh
+** Package manager for Kubernetes
+* Chartmuseum
+** Helm Chart repository
+* Monocular
+** Web UI for helm charts
+* https://draft.sh
 ** build packs used to bootstrap applications so they build and run on Kubernetes
-*** Helm is the most popular Kubernetes package manager used to install and upgrade your applications
-* https://github.com/jenkins-x/jenkins-x-platform
+* Skaffold
+** Tool for building docker images on kubernetes clusters and then deploying/upgrading them via kubectl or helm
+--
 
+== How does Jenkins X help?
 
-== Jenkins X, X means...
+----
+jx open
+
+jenkins                   http://jenkins.jx.35.200.29.158.nip.io
+jenkins-x-chartmuseum     http://chartmuseum.jx.35.200.29.158.nip.io
+jenkins-x-docker-registry http://docker-registry.jx.35.200.29.158.nip.io
+jenkins-x-monocular-ui    http://monocular.jx.35.200.29.158.nip.io
+nexus                     http://nexus.jx.35.200.29.158.nip.io
+----
+
+== Environment Promotion via GitOps
 
 [%step]
+* Development Environment
+* Staging Environment
+* Production Environment
 
-* Skaffold
-** enabled RAD development, abstracts building and pushing images
-* Anchore
-** service that analyzes docker images and applies user-defined acceptance policies to allow automated container image validation and certification
+
+== Environments in Kubernetes
+
+image::env.png[]
 
 
 == How do we setup Kubernetes + Jenkins X?
 
-* Install the command line tool: jx
-* http://jenkins-x.io/getting-started/install/
+* Install the jx command line tool
+** http://jenkins-x.io/getting-started/install/
 
 ----
 macOs:
@@ -225,30 +211,45 @@ curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.467/jx-darwin-amd
 sudo mv jx /usr/local/bin
 ----
 
-== What are the challenges?
+== How do we setup Kubernetes + Jenkins X?
+
+* If using the public cloud use:
+----
+jx create cluster aws
+jx create cluster gke
+jx create cluster aks
+----
+
+== How do we setup Kubernetes + Jenkins X?
+
+
+* If you have a cluster already - ensure RBAC enabled then:
+----
+jx install --provider=openshift
+----
+
+
+== jx Commands
+
+* jx command line tool
+* https://jenkins-x.io/commands/jx/
+
+
+== Demo
+
+== Demo Overview
 
 [%step]
-* How to get started?
-* How do I wire everything together?
-* What do I need to start developing, building and deploying?
-* How do I access my applications?
-* How do dev teams work with Kubernetes?
-* How do I migrate my applications to the cloud?
-
-
-
-== Step Overview
-
-[%step]
-* Step 1.Install Jx
+* Step 1. Install jx
 ** https://jenkins-x.io/getting-started/install/ 
 * Step 2. Create Cluster GKE
 ** https://jenkins-x.io/demos/create_cluster_gke/ 
-* Step 3. Create Cloud App - Spring Boot
+* Step 3. Create Cloud App: Spring Boot
 ** http://jenkins-x.io/demos/create_spring/
+* Step 4. Import Cloud App: Vert.x
 
 
-== Step 2. Create Cluster GKE
+== Demo - Step 2. Create Cluster GKE
 
 ----
 jx create cluster minikube
@@ -256,252 +257,87 @@ jx create cluster minishift
 jx create cluster gke
 ----
 
-* https://jenkins-x.io/commands/jx_create_cluster_minikube/
-* http://jenkins-x.io/getting-started/create-cluster/
+== Demo - Step 2. Create Cluster GKE
 
-
-== Step 2. Create Cluster GKE
-
-----
-asciinema rec -i 1 -t "Creating GKE Kubernetes cluster with Jenkins X"
-
-jx create cluster gke --cluster-name myk8scluster1027 --username admin --default-admin-password admin123! --verbose=true --log-level debug
-
-jx create cluster gke --cluster-name tedd824-k8s-cluster-1027 --username admin --default-admin-password admin123!
-
-----
-* https://asciinema.org/a/XGXT28lsJN2SNsuOAfb45Q6BM
-
-
-== What is Kubernetes
-
-* https://www.youtube.com/watch?v=IMOZCDhH7do
-
-
-== Continuous Integration & Continuous Delivery: CI/CD
-
-* https://www.youtube.com/watch?v=g0qSsex0Reg
-
-
-== jx command
-
-* jx context
-* jx namespace
-* jx env
-
-
-== demo
-
-* GKE cluster: realtimecep@gmail.com
-** myk8scluster1020
-*** https://goo.gl/PyrnCz
-*** https://goo.gl/PRh9eo
-**** Node: gke-myk8scluster1020-default-pool-1c9647a9-mmfk
-**** Context: gke_my-k8s-project-220013_asia-northeast1-a_myk8scluster1020
-
-
-== demo
-
-* GKE cluster: tedd824@gmail.com
-
-== demo
+* https://asciinema.org/a/5WCQvwLgYwz6YnefVKZ2NrulQ
 
 [source,bash,options="nowrap"]
 ----
-# Set which Kubernetes cluster kubectl communicates
-kubectl config use-context gke_my-k8s-project-220013_asia-northeast1-a_myk8scluster1020
-Switched to context "gke_my-k8s-project-220013_asia-northeast1-a_myk8scluster1020".
-
-jx context gke_my-k8s-project-220013_asia-northeast1-a_myk8scluster1020
-Using namespace 'kube-system' from context named 'gke_my-k8s-project-220013_asia-northeast1-a_myk8scluster1020' on server 'https://35.187.213.144'.
-
-# view the current context
-jx ctx -b
-Using namespace 'kube-system' from context named 'gke_my-k8s-project-220013_asia-northeast1-a_myk8scluster1020' on server 'https://35.187.213.144'.
-
-jx ns
-jx ns jx
-kubectl get pods --all-namespaces             # List all pods in all namespaces
-kubectl get pods -o wide                      # List all pods in the namespace, with more details
-kubectl get services
+jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
 ----
 
-
-== Built-in integrations with best-of-breed tools
-
-----
-$ jx ns jx
-
-Using namespace 'jx' from context named 'gke_tedd824-k8s-project_asia-northeast1-c_tedd824-k8s-cluster-1027' on server 'https://35.221.73.79'.
-
-
-$ jx open
-
-Name                      URL
-jenkins                   http://jenkins.jx.35.221.76.242.nip.io
-jenkins-x-chartmuseum     http://chartmuseum.jx.35.221.76.242.nip.io
-jenkins-x-docker-registry http://docker-registry.jx.35.221.76.242.nip.io
-jenkins-x-monocular-api   http://monocular.jx.35.221.76.242.nip.io
-jenkins-x-monocular-ui    http://monocular.jx.35.221.76.242.nip.io
-nexus                     http://nexus.jx.35.221.76.242.nip.io
-----
-
-
-== Step 3. Create Cloud App - Spring Boot
-
-* https://jenkins-x.io/demos/create_spring/
-
-
-== How do I create applications?
-
-[%step]
-* Available commands:
-** jx create spring
-** jx create quickstart
-** jx import
+== Demo - Step 3. Create Cloud App: Spring Boot
 
 ----
-asciinema rec -i 1 -t "Creating hello world Spring Boot app"
-
 jx create spring -d web -d actuator
-
-helm install chartmuseum/demo1027 --version 0.0.2
-
-asciinema rec -i 1 -t "Creating hello world Vertx app"
-
-cd demo && jx import
-
-APPLICATION STAGING PODS URL                                                PRODUCTION PODS URL
-demo1027    0.0.2   1/1  http://demo1027.jx-staging.35.221.76.242.nip.io    0.0.2      1/1  http://demo1027.jx-production.35.221.76.242.nip.io
-starter1027 1.0.2   1/1  http://starter1027.jx-staging.35.221.76.242.nip.io
-
-~/jx/starter1027(master) »                                                            tedwon@mymac
-asciinema: recording finished
-asciinema: press <enter> to upload to asciinema.org, <ctrl-c> to save locally
-asciinema: asciicast saved to /var/folders/99/p_rsjtc15pd53bz9mnqfy12c0000gn/T/tmptaplw7bt-ascii.cast
-
-jx import --url https://github.com/tedwon/starter.git --credentials=admin-admin
-# Watch pipeline activity via:    jx get activity -f demo -w
-# Browse the pipeline log via:    jx get build logs tedwon/demo/master
-# Open the Jenkins console via    jx console
-# You can list the pipelines via: jx get pipelines
-# When the pipeline is complete:  jx get applications
-jx get build logs
-jx get apps
-jx open
-jx open --env staging
-cd demo && jx create issue -t 'add a homepage'
-git checkout -b wip
-echo "hellow world" >> src/main/resources/static/index.html
-git add src
-git status
-git commit -a -m 'add a homepage fixes #1'
-git push origin wip
-hub pull-request
-jx env dev
-jx get build logs
-jx get apps
-jx promote --version 0.0.2 --env production --timeout 1h
-jx get apps
-jx env
-jx open
-jx edit environment
 ----
-
-
-== Generate a Vert.x project & import
-
-* http://start.vertx.io/
-
-== How do I create applications?
 
 [%step]
 * Automatically set up CI/CD pipelines for new + imported projects
-** Setups up git repository
-** Registers webhooks to trigger pipelines for PR / master
-** Triggers the first pipeline
+* Setups up git repository
+* Adds webhooks on git to trigger Jenkins pipelines on PR / master
+* Triggers the first pipeline
 
-
-== kubectl Commands
-
-* kubectl Cheat Sheet
-** https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-
-----
-kubectl get namespaces
-kubectl get ns
-
-
-kubectl top pod
-kubectl top node
-kubectl get services
-kubectl get pods
-kubectl get pods --all-namespaces
-kubectl get pods -o wide
-kubectl describe pod jx-staging-demo-thorntail-102100-c7898d496-lrr5n
-kubectl get pvc # You can check your storage class and persistent volume setup via:
-kubectl logs jx-staging-demo-thorntail-102100-c7898d496-lrr5n
-kubectl logs --tail=1000 jx-staging-demo-thorntail-102100-c7898d496-lrr5n
-kubectl delete pod maven-bc4h8 --namespace jx
-kubectl cluster-info
-kubectl cluster-info dump --output-directory=/path/to/cluster-state
-
-
-kubectl delete pod maven-4p1jm --namespace jx
-kubectl delete pod maven-54q83 --namespace jx
-kubectl delete pod maven-5tkpj --namespace jx
-kubectl delete pod maven-6x8nd --namespace jx
-kubectl delete pod maven-7pws5 --namespace jx
-kubectl delete pod maven-c5wc8 --namespace jx
-kubectl delete pod maven-ck3k7 --namespace jx
-
-
-----
-
-== What is GitOps?
+== Jenkins X on Pull Request
 
 [%step]
-* This is a set of principles for managing software and infrastructure based on Git:
-* The value of Jenkins X is that if you follow this best practice, then Jenkins X assembles all the pieces for you (e.g., Jenkins, Kubernetes, Git, CI/CD etc) such that developers can be instantly productive.
-* This is akin to what Maven brought over Ant — encouraging developers to use a standard Lifecycle-model provided by Maven (DRY) to achieve greater productivity.
-* When we integrate Kubernetes and Jenkins together, developers need not be familiar with how best to do CD on Kubernetes (most people are not) nor do they need to be familiar with Jenkins Pipeline (most people are not).
-* This much better ease of use can make Kubernetes itself a much more attractive platform, and make Jenkins a de-facto CI/CD platform for Kubernetes. This is the motivation of Jenkins X.
-
-* https://www.weave.works/blog/gitops-operations-by-pull-request
-* https://dzone.com/articles/what-is-gitops-really
-* https://github.com/weaveworks/flux
-* https://www.weave.works/blog/what-is-gitops-really
-* https://www.twistlock.com/2018/08/06/gitops-101-gitops-use/
+* Builds and tests
+* Creates preview docker image + helm chart
+* Creates a Preview Environment and comments on the PR with the link
 
 
-== Please try it out!
+== Jenkins X on Release (push to master)
 
-* https://jenkins-x.io/
+[%step]
+* Builds and tests
+* Creates semantic release version
+* Publishes versioned artifacts, docker image & helm chart
 
 
-== Using a different git provider for environments 
+== Jenkins X promotion via GitOps
 
-* https://jenkins-x.io/developing/git/#using-a-different-git-provider-for-environments
+[%step]
+* Each environment stores its configuration as helm charts in a git repository
+** Reuse the Pull Request workflow for changes
+* To promote a version to, say, Production Jenkins X submits a Pull Request
+** The Promote step waits for the Pull Request CI build to complete
 
+
+== Demo - Step 4. Import Cloud App: Vert.x
+
+* https://asciinema.org/a/5WCQvwLgYwz6YnefVKZ2NrulQ
+* http://start.vertx.io/
+
+----
+jx import
+----
+
+
+== Jenkins X Roadmap
+
+* https://jenkins-x.io/contribute/roadmap/
+
+
+== Try it out!
+
+* https://jenkins-x.io/getting-started/
+
+
+== Thank you
 
 == References
 
-* [1] https://developer.okta.com/blog/2018/07/11/ci-cd-spring-boot-jenkins-x-kubernetes
-* Introducing Jenkins X: a CI/CD solution for modern cloud applications on Kubernetes https://jenkins.io/blog/2018/03/19/introducing-jenkins-x/
-* Jenkins X: Easy CI/CD for Kubernetes - James Strachan https://www.youtube.com/watch?v=uHe7R_iZSLU
-* Accelerate with Jenkins X https://jenkins.io/blog/2018/07/19/jenkins-x-accelerate/
-** https://jenkins.io/images/jenkins-x/accelerate/JenkinsX_capabilities.png
-* Jenkins: X or 2.0 ? https://dzone.com/articles/jenkins-x-the-good-bad-and-ugly
-* JenkinsX – new Kubernetes dream? Part 1 https://blog.octo.com/en/jenkinsx-new-kubernetes-dream-part-1/
-* https://www.dropbox.com/s/2l3yudybl8dx4j7/2.pdf?dl=0
 * https://docs.google.com/presentation/d/1hwt2lFh3cCeFdP4xoT_stMPs0nh2xVZUtze6o79WfXc/edit#slide=id.p
-* Jenkins http://www.itworld.co.kr/news/107527
+* https://developer.okta.com/blog/2018/07/11/ci-cd-spring-boot-jenkins-x-kubernetes
+* https://jenkins.io/blog/2018/03/19/introducing-jenkins-x/
+* https://www.youtube.com/watch?v=uHe7R_iZSLU
+* https://jenkins.io/blog/2018/07/19/jenkins-x-accelerate/
+* https://dzone.com/articles/jenkins-x-the-good-bad-and-ugly
+* https://blog.octo.com/en/jenkinsx-new-kubernetes-dream-part-1/
+* https://www.dropbox.com/s/2l3yudybl8dx4j7/2.pdf?dl=0
+* http://www.itworld.co.kr/news/107527
 * https://www.redhat.com/en/blog/integrating-ansible-jenkins-cicd-process
 * http://woowabros.github.io/experience/2018/06/26/bros-cicd.html
-* GitOps https://dzone.com/articles/what-is-gitops-really
-* Jenkins X Roadmap https://jenkins-x.io/contribute/roadmap/
-* CloudBees 2011년 메모: https://tedwon.atlassian.net/wiki/spaces/SE/pages/1212796/CloudBees
-* JBUG Hands-on https://goo.gl/oBbHxA
-
-== Thank you
+* https://dzone.com/articles/what-is-gitops-really
+* https://jenkins-x.io/developing/git/#using-a-different-git-provider-for-environments
 

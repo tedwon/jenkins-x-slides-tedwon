@@ -1,0 +1,184 @@
+== Demo
+
+== Demo Overview
+
+[%step]
+* Step 1. Install jx
+** https://jenkins-x.io/getting-started/install/ 
+* Step 2. Create Cluster GKE
+** https://jenkins-x.io/demos/create_cluster_gke/ 
+* Step 3. Create Cloud App: Spring Boot, Vert.x
+** http://jenkins-x.io/demos/create_spring/
+
+
+== Demo - Step 2. Create Cluster GKE
+
+----
+jx create cluster minikube
+jx create cluster minishift
+jx create cluster gke
+----
+
+== Demo - Step 2. Create Cluster GKE
+
+* https://asciinema.org/a/5WCQvwLgYwz6YnefVKZ2NrulQ
+
+[source,bash,options="nowrap"]
+----
+jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+# view the current context
+jx ctx -b
+
+jx ns
+jx ns jx
+kubectl get pods -o wide
+kubectl get services
+jx open
+~~~
+Name                      URL
+jenkins                   http://jenkins.jx.35.200.29.158.nip.io
+jenkins-x-chartmuseum     http://chartmuseum.jx.35.200.29.158.nip.io
+jenkins-x-docker-registry http://docker-registry.jx.35.200.29.158.nip.io
+jenkins-x-monocular-api   http://monocular.jx.35.200.29.158.nip.io
+jenkins-x-monocular-ui    http://monocular.jx.35.200.29.158.nip.io
+nexus                     http://nexus.jx.35.200.29.158.nip.io
+~~~
+
+jx env
+jx get apps
+----
+
+== Demo - Step 3. Create Cloud App: Spring Boot
+
+----
+jx create spring -d web -d actuator
+----
+
+[source,bash,options="nowrap"]
+----
+jx create spring -d web -d actuator
+cd demo1030
+ls -al
+hub browse
+jx get build logs
+jx get apps
+jx open --env staging
+http://demo1030.jx-staging.35.200.29.158.nip.io/
+http://jenkins.jx.35.200.29.158.nip.io/job/tedwon/
+http://jenkins.jx.35.200.29.158.nip.io/job/tedwon/job/demo1030/job/master/1/console
+Jenkins Blue Ocean view
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1030/detail/master/1/pipeline
+https://github.com/tedwon/demo1030/blob/master/Jenkinsfile
+https://github.com/tedwon/demo1030/blob/master/charts/demo1030/Makefile
+https://github.com/tedwon/demo1030/commit/749ba83745b9c92978ea1c5f857e2239f53ee29f
+https://github.com/tedwon/demo1030/releases
+
+https://github.com/tedwon?tab=repositories
+https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging
+https://github.com/tedwon/environment-jwon-k8s-cluster-1030-production
+https://github.com/tedwon/demo1030
+
+https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/commits/master
+https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/pull/1
+https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/commit/e7b59fb5c9a514779e5d850c2d6a81ab6295e6b8
+
+jx create issue -t 'add a homepage'
+https://github.com/tedwon/demo1030/issues/1
+
+git checkout -b wip
+echo "Hello Jenkins X" >> src/main/resources/static/index.html
+tree src/main/resources
+git add src
+git status
+git commit -a -m 'add a homepage fixes #1'
+git push origin wip
+hub pull-request
+https://github.com/tedwon/demo1030/pull/2
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1030/detail/PR-2/1/pipeline
+http://demo1030.jx-tedwon-demo1030-pr-2.35.200.29.158.nip.io/
+
+jx env dev
+jx get build logs
+
+# preview for PR reviewer
+jx env                                                                                                                                    tedwon@mymac
+? Pick environment: tedwon-demo1030-pr-2
+jx open                                                                                                                                   tedwon@mymac
+Name     URL
+demo1030 http://demo1030.jx-tedwon-demo1030-pr-2.35.200.29.158.nip.io
+
+jx get apps
+
+https://github.com/tedwon/demo1030/pull/2
+LGTM :+1
+merge!
+
+jx get build logs
+> tedwon/demo1030/master
+
+jx get apps
+APPLICATION STAGING PODS URL                                             PRODUCTION PODS URL
+demo1030    0.0.2        http://demo1030.jx-staging.35.200.29.158.nip.io
+
+https://github.com/tedwon/demo1030/releases
+https://github.com/tedwon/demo1030/releases/tag/v0.0.2
+https://github.com/tedwon/demo1030/issues/1
+https://github.com/tedwon/demo1030/pull/2
+
+git checkout master
+git pull
+
+jx env
+> production
+jx open
+jx get apps
+
+jx promote --version 0.0.2 --env production --timeout 1h
+jx get build logs
+jx get apps
+APPLICATION STAGING PODS URL                                             PRODUCTION PODS URL
+demo1030    0.0.2   1/1  http://demo1030.jx-staging.35.200.29.158.nip.io 0.0.2      1/1  http://demo1030.jx-production.35.200.29.158.nip.io
+
+jx env
+jx open
+> production
+Name     URL
+demo1030 http://demo1030.jx-production.35.200.29.158.nip.io
+----
+
+
+== Demo - Step 3. Create Cloud App: Vert.x
+
+----
+jx import
+----
+
+* http://start.vertx.io/
+
+----
+unzip starter.zip
+cd starter
+mvn -DskipTests clean package exec:java
+mvn clean
+jx import
+jx console
+http://jenkins.jx.35.200.29.158.nip.io/blue
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fstarter1030/detail/master/1/pipeline
+Abort
+mvn -DskipTests clean package
+ls -al target
+code Dockerfile
+git commit -a -m "update Dockerfile"
+git push
+jx get build logs
+> tedwon/starter1030/master
+jx open --env staging
+jx get apps
+jx promote --version 1.0.1 --env production --timeout 1h
+https://github.com/tedwon/environment-jwon-k8s-cluster-1030-production/pull/3
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fenvironment-jwon-k8s-cluster-1030-production/detail/PR-3/1/pipeline
+jx get build logs
+jx get apps
+----
+

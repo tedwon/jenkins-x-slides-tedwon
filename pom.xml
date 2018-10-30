@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jbugkorea</groupId>
     <artifactId>jenkins-x-slides-tedwon</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>my Jenkins X presentation</name>
     <description>앞으로 성큼 다가올 cloud native application 개발 시대로의 전환을 맞아 산업상의 표준으로 자리잡고 있는 클라우드 플랫폼 Kubernetes 상에서의 개발자를 돕는 CI/CD best practice 를 알아보자.</description>
 
