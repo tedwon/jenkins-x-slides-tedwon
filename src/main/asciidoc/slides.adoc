@@ -104,18 +104,27 @@ image::jenkinsx.png[width="300"]
 --
 
 
+//== !
+
+//Jenkins X Architecture
+
+//image::jx-arch.png[background, size=cover]
+
+
 == Supported Cloud Providers
 
 ----
-$ jx help create cluster
+jx help create cluster
 ----
 
+[%step]
 * Google Container Engine
 * OpenShift
 * Amazon Elastic Container Service
 * Azure Container Service
 * IBM Cloud Kubernetes Service
 * Oracle Cloud Container Engine
+** https://jenkins-x.io/commands/jx_create_cluster/
 
 [NOTE.speaker]
 --
@@ -183,7 +192,20 @@ jenkins-x-monocular-ui    http://monocular.jx.35.200.29.158.nip.io
 nexus                     http://nexus.jx.35.200.29.158.nip.io
 ----
 
+* Jenkins http://jenkins.jx.35.200.29.158.nip.io
+* Monocular http://monocular.jx.35.200.29.158.nip.io
+* Nexus http://nexus.jx.35.200.29.158.nip.io
+
+
 == Environment Promotion via GitOps
+
+----
+jx env
+? Pick environment:  [Use arrows to move, type to filter]
+> dev
+  production
+  staging
+----
 
 [%step]
 * Development Environment
@@ -234,6 +256,9 @@ jx install --provider=openshift
 * jx command line tool
 * https://jenkins-x.io/commands/jx/
 
+----
+jx help
+----
 
 == Demo
 

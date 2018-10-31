@@ -18,3 +18,11 @@ _Let's have a look at CI/CD best practices to help developers on the cloud platf
 ----
 
 * Open the file _target/generated-slides/slides.html_ in your browser to see the generated HTML file.
+
+=== Print as PDF
+
+* Open slides.html as below:
+
+----
+slides.html?print-pdf
+----
