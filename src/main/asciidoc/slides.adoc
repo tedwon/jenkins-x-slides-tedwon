@@ -22,7 +22,7 @@ ifndef::sourcedir[:sourcedir: ../../main/java]
 
 == Jenkins
 
-[%step]
+//[%step]
 * https://jenkins.io/
 
 image::jenkins.png[width="300"]
@@ -30,7 +30,7 @@ image::jenkins.png[width="300"]
 
 == Jenkins X
 
-[%step]
+//[%step]
 * https://jenkins-x.io/
 
 image::jenkinsx.png[width="300"]
@@ -38,7 +38,7 @@ image::jenkinsx.png[width="300"]
 
 == Transformation of Development Platform
 
-[%step]
+//[%step]
 * Move from on premise to cloud
 * Move from VMs to containers
 * Immutable infrastructure for DevOps
@@ -49,7 +49,7 @@ image::jenkinsx.png[width="300"]
 
 == What are the challenges?
 
-[%step]
+//[%step]
 * How do I migrate my applications to the cloud?
 * How do dev teams work with Kubernetes?
 * What do I need to start developing, building and deploying?
@@ -59,7 +59,7 @@ image::jenkinsx.png[width="300"]
 
 == Started by James Strachan
 
-[%step]
+//[%step]
 * Released at March of this year, 2018
 ** https://twitter.com/jstrachan/status/975796722147438598
 ** https://goo.gl/ceLcmq
@@ -71,7 +71,7 @@ image::jenkinsx.png[width="300"]
 
 == Started by James Strachan
 
-[%step]
+//[%step]
 * Developed similar project in Red Hat until last year, 2017
 ** https://goo.gl/4re3G7
 * gofabric8
@@ -81,7 +81,7 @@ image::jenkinsx.png[width="300"]
 
 == Features of Jenkins X
 
-[%step]
+//[%step]
 * Automated CI and CD
 * Environment Promotion via GitOps
 * Pull Request Preview Environments
@@ -117,7 +117,7 @@ image::jenkinsx.png[width="300"]
 jx help create cluster
 ----
 
-[%step]
+//[%step]
 * Google Container Engine
 * OpenShift
 * Amazon Elastic Container Service
@@ -143,7 +143,7 @@ jx help create cluster
 
 == How does Jenkins X help?
 
-[%step]
+//[%step]
 * Jenkins
 ** CI/CD pipeline solution
 * Nexus
@@ -156,7 +156,7 @@ jx help create cluster
 
 == How does Jenkins X help?
 
-[%step]
+//[%step]
 * Monocular
 ** Web UI for helm charts
 * https://draft.sh
@@ -180,6 +180,60 @@ jx help create cluster
 ** Tool for building docker images on kubernetes clusters and then deploying/upgrading them via kubectl or helm
 --
 
+== Helm Chart
+
+* Helm Chart is a packaging format. 
+* A chart is a collection of files that describe a related set of Kubernetes resources.
+----
+~/demo/charts/demo(master) » tree .
+.
+├── Chart.yaml
+├── Makefile
+├── README.md
+├── charts
+├── templates
+│   ├── NOTES.txt
+│   ├── _helpers.tpl
+│   ├── deployment.yaml
+│   └── service.yaml
+└── values.yaml
+----
+
+== !
+
+//Jenkins UI
+
+image::jenkins-env.png[background, size=cover]
+
+
+== !
+
+//Jenkins Blue Ocean UI
+
+image::jenkins-blue-ocean.png[background, size=cover]
+
+
+== !
+
+//Jenkins Blue Ocean UI
+
+image::jenkins-blue-ocean-pipeline.png[background, size=cover]
+
+
+== !
+
+//Nexus UI
+
+image::nexus.png[background, size=cover]
+
+
+== !
+
+//Monocular UI
+
+image::monocular.png[background, size=cover]
+
+
 == How does Jenkins X help?
 
 ----
@@ -193,8 +247,8 @@ nexus                     http://nexus.jx.35.200.29.158.nip.io
 ----
 
 * Jenkins http://jenkins.jx.35.200.29.158.nip.io
-* Monocular http://monocular.jx.35.200.29.158.nip.io
 * Nexus http://nexus.jx.35.200.29.158.nip.io
+* Monocular http://monocular.jx.35.200.29.158.nip.io
 
 
 == Environment Promotion via GitOps
@@ -207,7 +261,7 @@ jx env
   staging
 ----
 
-[%step]
+//[%step]
 * Development Environment
 * Staging Environment
 * Production Environment
@@ -264,7 +318,7 @@ jx help
 
 == Demo Overview
 
-[%step]
+//[%step]
 * Step 1. Install jx
 ** https://jenkins-x.io/getting-started/install/ 
 * Step 2. Create Cluster GKE
@@ -284,8 +338,9 @@ jx create cluster gke
 
 == Demo - Step 2. Create Cluster GKE
 
-* https://asciinema.org/a/5WCQvwLgYwz6YnefVKZ2NrulQ
-
+* https://asciinema.org/a/209189
+** https://github.com/tedwon/jenkins-x-slides-tedwon/blob/master/src/main/asciidoc/demo.adoc[demo.adoc]
+** https://cloud.google.com/kubernetes-engine
 [source,bash,options="nowrap"]
 ----
 jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
@@ -297,15 +352,21 @@ jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --de
 jx create spring -d web -d actuator
 ----
 
-[%step]
+//[%step]
 * Automatically set up CI/CD pipelines for new + imported projects
 * Setups up git repository
 * Adds webhooks on git to trigger Jenkins pipelines on PR / master
 * Triggers the first pipeline
 
+
+== Demo & Environment Git Repository
+
+image::demo-env-git-repository.png[]
+
+
 == Jenkins X on Pull Request
 
-[%step]
+//[%step]
 * Builds and tests
 * Creates preview docker image + helm chart
 * Creates a Preview Environment and comments on the PR with the link
@@ -313,7 +374,7 @@ jx create spring -d web -d actuator
 
 == Jenkins X on Release (push to master)
 
-[%step]
+//[%step]
 * Builds and tests
 * Creates semantic release version
 * Publishes versioned artifacts, docker image & helm chart
@@ -321,7 +382,7 @@ jx create spring -d web -d actuator
 
 == Jenkins X promotion via GitOps
 
-[%step]
+//[%step]
 * Each environment stores its configuration as helm charts in a git repository
 ** Reuse the Pull Request workflow for changes
 * To promote a version to, say, Production Jenkins X submits a Pull Request
@@ -330,7 +391,7 @@ jx create spring -d web -d actuator
 
 == Demo - Step 4. Import Cloud App: Vert.x
 
-* https://asciinema.org/a/5WCQvwLgYwz6YnefVKZ2NrulQ
+* https://asciinema.org/a/209189
 * http://start.vertx.io/
 
 ----
