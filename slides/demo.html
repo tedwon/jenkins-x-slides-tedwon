@@ -209,8 +209,8 @@ Name     URL
 demo1031 http://demo1031.jx-production.35.200.29.158.nip.io</code></pre></div></div></section>
 <section id="demo_step_3_create_cloud_app_vert_x"><h2>Demo - Step 3. Create Cloud App: Vert.x</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code>jx import</code></pre></div></div>
 <div class="ulist"><ul><li><p><a href="http://start.vertx.io/" class="bare">http://start.vertx.io/</a></p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="CodeRay"><code>unzip starter.zip
-cd starter
+<div class="listingblock"><div class="content"><pre class="CodeRay"><code>unzip starter.zip &amp;&amp; mv starter starter1031
+cd starter1031
 mvn -DskipTests clean package exec:java
 mvn clean
 jx import

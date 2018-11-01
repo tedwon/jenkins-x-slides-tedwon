@@ -1,0 +1,24 @@
+#ansible-playbook jenkins-x-minikube.yml -v
+
+---
+- hosts: localhost
+  tasks:
+  - name: Clean up - uninstall minikube
+    command: "{{ item }}"
+    with_items:
+    - minikube stop
+    - eval $(minikube docker-env -u)
+    - minikube delete
+    - brew cask uninstall --force minikube
+    ignore_errors: yes
+  - name: Clean up - rm -rf ~/.minikube
+    file:
+      state: absent
+      path: "~/.minikube"
+    ignore_errors: yes
+  - name: Install - install minikube
+    command: brew cask install minikube
+  - name: jx
+    command: jx
+    args:
+      chdir: ~/Downloads

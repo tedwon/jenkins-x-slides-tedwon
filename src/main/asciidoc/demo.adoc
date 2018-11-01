@@ -157,8 +157,8 @@ jx import
 * http://start.vertx.io/
 
 ----
-unzip starter.zip
-cd starter
+unzip starter.zip && mv starter starter1031
+cd starter1031
 mvn -DskipTests clean package exec:java
 mvn clean
 jx import

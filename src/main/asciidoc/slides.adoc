@@ -75,8 +75,8 @@ image::jenkinsx.png[width="300"]
 * Developed similar project in Red Hat until last year, 2017
 ** https://goo.gl/4re3G7
 * gofabric8
-** http://fabric8.io/
-*** https://github.com/fabric8io/gofabric8
+** https://github.com/fabric8io/gofabric8
+*** http://fabric8.io/
 
 
 == Features of Jenkins X
