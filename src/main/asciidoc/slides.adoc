@@ -2,7 +2,7 @@
 
 = Jenkins X
 
-automated CI/CD for cloud native apps on Kubernetes
+automated CI/CD solution for cloud native applications on Kubernetes
 
 https://jenkins-x.io/
 
@@ -17,6 +17,9 @@ tedwon <jwon@redhat.com>
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
+== I am a Red Hat JBoss Senior SME at Seoul
+
+== Software Maintenance Engineer
 
 == Jenkins vs Jenkis X
 

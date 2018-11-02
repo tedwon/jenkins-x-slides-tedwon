@@ -4,6 +4,8 @@ _앞으로 성큼 다가올 cloud native application 개발 시대로의 전환�
 
 _Let's have a look at CI/CD best practices to help developers on the cloud platform Kubernetes, which is becoming an industry standard, as we move to the era of cloud native application development, which is about to come._
 
+* Check it out link:src/main/asciidoc/slides.adoc[slides.adoc]
+
 === Demo
 
 * https://asciinema.org/a/209189 - Creating GKE Kubernetes cluster and CI/CD with Jenkins X
