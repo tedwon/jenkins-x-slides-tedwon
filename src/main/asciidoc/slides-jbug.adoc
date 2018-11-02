@@ -28,7 +28,7 @@ image::jenkins.png[width="400"]
 image::jenkinsx.png[width="400"]
 
 
-== Jenkins X -  JBUG Hands-on
+== Jenkins X - JBUG Hands-on
 
 * https://goo.gl/oBbHxA
 

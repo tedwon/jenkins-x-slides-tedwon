@@ -6,7 +6,10 @@ automated CI/CD solution for cloud native applications on Kubernetes
 
 https://jenkins-x.io/
 
-tedwon <jwon@redhat.com>
+tedwon <jwon@redhat.com,tedwon@jbugkorea.org>
+
+image::jbugkorea_logotype_600px.gif[background, size=cover]
+
 
 //:icons: font
 //:source-highlighter: prettify
@@ -58,6 +61,11 @@ image::jenkinsx.png[width="300"]
 * What do I need to start developing, building and deploying?
 * How do I wire everything together?
 * How do I access my applications?
+
+
+== Started by James Strachan
+
+image::jstrachan.png[width="400"]
 
 
 == Started by James Strachan
@@ -270,9 +278,17 @@ jx env
 * Production Environment
 
 
-== Environments in Kubernetes
+== !
+//== Environments in Kubernetes
 
-image::env.png[]
+image::gitops.png[]
+
+
+== !
+//== jx Overview
+
+//image::jx-overview.png[]
+image::jx-overview.png[background, size=cover]
 
 
 == How do we setup Kubernetes + Jenkins X?
@@ -410,9 +426,15 @@ jx import
 == Try it out!
 
 * https://jenkins-x.io/getting-started/
+* JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
 
 
 == Thank you
+
+image::jbugkorea_logotype_600px.gif[width="700"]
+
+facebook.com/groups/jbossusergroup/
+
 
 == References
 
@@ -421,12 +443,21 @@ jx import
 * https://jenkins.io/blog/2018/03/19/introducing-jenkins-x/
 * https://www.youtube.com/watch?v=uHe7R_iZSLU
 * https://jenkins.io/blog/2018/07/19/jenkins-x-accelerate/
+
+
+== References
+
 * https://dzone.com/articles/jenkins-x-the-good-bad-and-ugly
 * https://blog.octo.com/en/jenkinsx-new-kubernetes-dream-part-1/
 * https://www.dropbox.com/s/2l3yudybl8dx4j7/2.pdf?dl=0
 * http://www.itworld.co.kr/news/107527
 * https://www.redhat.com/en/blog/integrating-ansible-jenkins-cicd-process
+
+
+
+== References
+
 * http://woowabros.github.io/experience/2018/06/26/bros-cicd.html
 * https://dzone.com/articles/what-is-gitops-really
 * https://jenkins-x.io/developing/git/#using-a-different-git-provider-for-environments
-
+* JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
