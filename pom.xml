@@ -97,8 +97,12 @@
                                 <revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
                                 <!-- put here the reveal.js specific attributes -->
                                 <sourcedir>${basedir}/src/main/java</sourcedir>
-                                <!-- <revealjs_theme>league</revealjs_theme> -->
-                                <revealjs_theme>beige</revealjs_theme>
+                                <!-- Reveal.js Options -->
+                                <!-- https://github.com/asciidoctor/asciidoctor-reveal.js#revealjs-options -->
+                                <!-- https://github.com/hakimel/reveal.js#theming -->
+                                <revealjs_theme>league</revealjs_theme>
+                                <!-- <revealjs_theme>beige</revealjs_theme> -->
+                                <!-- <revealjs_theme>sky</revealjs_theme> -->
                                 <!-- <revealjs_theme>solarized</revealjs_theme> -->
                                 <!-- <revealjs_theme>serif</revealjs_theme> -->
                                 <!-- <revealjs_theme>blood</revealjs_theme> -->
@@ -106,7 +110,14 @@
                                 <!-- <revealjs_theme>white</revealjs_theme> -->
                                 <!-- <revealjs_theme>moon</revealjs_theme> -->
                                 <!-- <revealjs_theme>simple</revealjs_theme> -->
-                                <revealjs_transition>linear</revealjs_transition>
+                                <!-- <revealjs_transition>linear</revealjs_transition> -->
+                                <revealjs_transition>fade</revealjs_transition>
+                                <!-- <revealjs_transition>convex</revealjs_transition> -->
+                                <!-- <revealjs_transition>concave</revealjs_transition> -->
+                                <!-- <revealjs_transition>zoom</revealjs_transition> -->
+                                <revealjs_transitionSpeed>slow</revealjs_transitionSpeed>
+                                <revealjs_slideNumber>true</revealjs_slideNumber>
+                                <revealjs_fragmentInURL>true</revealjs_fragmentInURL>
                                 <project-version>${project.version}</project-version>
                             </attributes>
                         </configuration>

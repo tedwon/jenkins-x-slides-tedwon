@@ -11,7 +11,7 @@ tedwon <jwon@redhat.com>
 //image::jbugkorea_logotype_600px.gif[background, size=cover]
 
 
-//:icons: font
+:icons: font
 //:source-highlighter: prettify
 //:source-highlighter: highlightjs
 //:source-highlighter: coderay
@@ -20,9 +20,16 @@ tedwon <jwon@redhat.com>
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
+
+[transition=zoom, %notitle]
+[background-color="red"]
 == I am a Red Hat JBoss Senior SME at Seoul
 
+
+[transition-speed=fast, %notitle]
+[background-color="red"]
 == Software Maintenance Engineer
+
 
 == Jenkins vs Jenkis X
 
@@ -279,10 +286,10 @@ image::gitops.png[]
 image::jx-overview.png[canvas,size=contain]
 
 
-//[%notitle]
-//== Jenkins X Architecture
+[%notitle]
+=== Jenkins X Architecture
 
-//image::jx-arch.png[canvas,size=contain]
+image::jx-arch.png[canvas,size=contain]
 
 
 == How do we setup Kubernetes + Jenkins X?

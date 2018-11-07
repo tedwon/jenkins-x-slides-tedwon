@@ -24,6 +24,8 @@ jx create cluster gke
 ----
 asciinema rec -i 1 -t "Creating minikube cluster with Jenkins X --default-environment-prefix=jbug --no-tiller --prow=true option"
 
+jx create cluster minikube --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
 jx create cluster minikube --no-tiller --username admin --default-admin-password admin123!
 
 jx create cluster minikube --no-tiller --username admin --default-admin-password admin123! --verbose=true --log-level debug
