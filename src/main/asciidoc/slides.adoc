@@ -6,9 +6,9 @@ automated CI/CD solution for cloud native applications on Kubernetes
 
 https://jenkins-x.io/
 
-tedwon <jwon@redhat.com,tedwon@jbugkorea.org>
+tedwon <jwon@redhat.com>
 
-image::jbugkorea_logotype_600px.gif[background, size=cover]
+//image::jbugkorea_logotype_600px.gif[background, size=cover]
 
 
 //:icons: font
@@ -115,13 +115,6 @@ image::jstrachan.png[width="400"]
 --
 
 
-//== !
-
-//Jenkins X Architecture
-
-//image::jx-arch.png[background, size=cover]
-
-
 == Supported Cloud Providers
 
 ----
@@ -210,37 +203,33 @@ jx help create cluster
 └── values.yaml
 ----
 
-== !
 
-//Jenkins UI
+[%notitle]
+== Jenkins UI
 
 image::jenkins-env.png[background, size=cover]
 
 
-== !
-
-//Jenkins Blue Ocean UI
+[%notitle]
+== Jenkins Blue Ocean UI
 
 image::jenkins-blue-ocean.png[background, size=cover]
 
 
-== !
-
-//Jenkins Blue Ocean UI
+[%notitle]
+== Jenkins Blue Ocean UI
 
 image::jenkins-blue-ocean-pipeline.png[background, size=cover]
 
 
-== !
-
-//Nexus UI
+[%notitle]
+== Nexus UI
 
 image::nexus.png[background, size=cover]
 
 
-== !
-
-//Monocular UI
+[%notitle]
+== Monocular UI
 
 image::monocular.png[background, size=cover]
 
@@ -278,17 +267,22 @@ jx env
 * Production Environment
 
 
-== !
-//== Environments in Kubernetes
+[%notitle]
+== Environments in Kubernetes
 
 image::gitops.png[]
 
 
-== !
-//== jx Overview
+[%notitle]
+== jx Overview
 
-//image::jx-overview.png[]
-image::jx-overview.png[background, size=cover]
+image::jx-overview.png[canvas,size=contain]
+
+
+//[%notitle]
+//== Jenkins X Architecture
+
+//image::jx-arch.png[canvas,size=contain]
 
 
 == How do we setup Kubernetes + Jenkins X?
@@ -357,7 +351,7 @@ jx create cluster gke
 
 == Demo - Step 2. Create Cluster GKE
 
-* https://asciinema.org/a/209189
+* Record: https://asciinema.org/a/209189
 ** https://github.com/tedwon/jenkins-x-slides-tedwon/blob/master/src/main/asciidoc/demo.adoc[demo.adoc]
 ** https://cloud.google.com/kubernetes-engine
 [source,bash,options="nowrap"]
@@ -420,7 +414,7 @@ jx import
 
 == Jenkins X Roadmap
 
-* https://jenkins-x.io/contribute/roadmap/
+https://jenkins-x.io/contribute/roadmap/
 
 
 == Try it out!

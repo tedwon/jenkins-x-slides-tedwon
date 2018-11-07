@@ -6,14 +6,14 @@
     debian_tmp_dir: /tmp/my_temp_dir
   tasks:
 # Step 1. Install Jx
-  # - name: Clean up - uninstall jx
-  #   command: brew uninstall --force jx
-  #   ignore_errors: yes
-  # - name: Clean up - rm -rf ~/.jx
-  #   file:
-  #     state: absent
-  #     path: "~/.jx"
-  #   ignore_errors: yes
+  - name: Clean up - uninstall jx
+    command: brew uninstall --force jx
+    ignore_errors: yes
+  - name: Clean up - rm -rf ~/.jx
+    file:
+      state: absent
+      path: "~/.jx"
+    ignore_errors: yes
   - name: Clean up - stop & uninstall minikube
     command: "{{ item }}"
     with_items:
