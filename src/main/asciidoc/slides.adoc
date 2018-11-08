@@ -275,18 +275,21 @@ jx env
 
 
 [%notitle]
+[background-color="white"]
 == Environments in Kubernetes
 
-image::gitops.png[]
+image::gitops.png[canvas,size=contain]
 
 
 [%notitle]
+[background-color="white"]
 == jx Overview
 
 image::jx-overview.png[canvas,size=contain]
 
 
 [%notitle]
+[background-color="white"]
 === Jenkins X Architecture
 
 image::jx-arch.png[canvas,size=contain]

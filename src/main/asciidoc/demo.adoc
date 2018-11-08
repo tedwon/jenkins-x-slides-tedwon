@@ -40,6 +40,8 @@ asciinema rec -i 1 -t "Creating minishift cluster with Jenkins X --default-envir
 
 jx create cluster minishift --verbose=true --log-level debug
 
+jx create cluster minishift --default-environment-prefix=minishift --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
 jx create cluster minishift --no-tiller --username admin --default-admin-password admin123!
 
 jx create cluster minishift --no-tiller --username admin --default-admin-password admin123! --verbose=true --log-level debug
