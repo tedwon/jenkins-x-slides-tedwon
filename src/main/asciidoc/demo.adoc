@@ -55,11 +55,15 @@ jx create cluster minishift --default-environment-prefix=jbug --no-tiller --prow
 
 [source,bash,options="nowrap"]
 ----
-jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
+asciinema rec -i 1 -t "Creating GKE Kubernetes cluster with Jenkins X at 20181108"
 
-asciinema rec -i 1 -t "Creating GKE Kubernetes cluster with Jenkins X --no-tiller option"
-## --no-tiller 
-jx create cluster gke --no-tiller --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
+jx create cluster gke --cluster-name jwon-k8s-cluster-1108 --default-environment-prefix=jbug --username admin --default-admin-password admin123!
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1108 --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1108 --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1108 --username admin --default-admin-password admin123! --verbose=true --log-level debug --no-tiller --prow=true
 
 # view the current context
 jx ctx -b
@@ -91,6 +95,9 @@ jx create spring -d web -d actuator
 
 [source,bash,options="nowrap"]
 ----
+
+asciinema rec -i 1 -t "Creating Sample Application on GKE Kubernetes cluster with Jenkins X at 20181108"
+
 jx create spring -d web -d actuator
 cd demo1031
 ls -al
@@ -109,19 +116,19 @@ https://github.com/tedwon/demo1031/commit/749ba83745b9c92978ea1c5f857e2239f53ee2
 https://github.com/tedwon/demo1031/releases
 
 https://github.com/tedwon?tab=repositories
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-production
+https://github.com/tedwon/environment-jwon-k8s-cluster-1108-staging
+https://github.com/tedwon/environment-jwon-k8s-cluster-1108-production
 https://github.com/tedwon/demo1031
 
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/commits/master
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/pull/1
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/commit/e7b59fb5c9a514779e5d850c2d6a81ab6295e6b8
+https://github.com/tedwon/environment-jwon-k8s-cluster-1108-staging/commits/master
+https://github.com/tedwon/environment-jwon-k8s-cluster-1108-staging/pull/1
+https://github.com/tedwon/environment-jwon-k8s-cluster-1108-staging/commit/e7b59fb5c9a514779e5d850c2d6a81ab6295e6b8
 
 jx create issue -t 'add a homepage'
 https://github.com/tedwon/demo1031/issues/1
 
 git checkout -b wip
-echo "Hello Jenkins X" >> src/main/resources/static/index.html
+echo "Hello Jenkins X v0.0.2" >> src/main/resources/static/index.html
 tree src/main/resources
 git add src
 git status
@@ -210,8 +217,8 @@ jx get build logs
 jx open --env staging
 jx get apps
 jx promote --version 1.0.1 --env production --timeout 1h
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-production/pull/3
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fenvironment-jwon-k8s-cluster-1030-production/detail/PR-3/1/pipeline
+https://github.com/tedwon/environment-jwon-k8s-cluster-1108-production/pull/3
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fenvironment-jwon-k8s-cluster-1108-production/detail/PR-3/1/pipeline
 jx get build logs
 jx get apps
 ----

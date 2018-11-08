@@ -339,6 +339,9 @@ jx help
 
 == Demo
 
+[%notitle,background-iframe="https://www.youtube.com/embed/kPes3rvT1UM"]
+== jx create spring youtube video
+
 == Demo Overview
 
 //[%step]
@@ -394,6 +397,8 @@ image::demo-env-git-repository.png[]
 * Creates preview docker image + helm chart
 * Creates a Preview Environment and comments on the PR with the link
 
+image::pr-comment.png[]
+
 
 == Jenkins X on Release (push to master)
 
@@ -401,6 +406,8 @@ image::demo-env-git-repository.png[]
 * Builds and tests
 * Creates semantic release version
 * Publishes versioned artifacts, docker image & helm chart
+
+image::release.png[]
 
 
 == Jenkins X promotion via GitOps
@@ -433,6 +440,7 @@ https://jenkins-x.io/contribute/roadmap/
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
 
 
+//[background-color="navy"]
 == Thank you
 
 image::jbugkorea_logotype_600px.gif[width="700"]
