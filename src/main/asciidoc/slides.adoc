@@ -340,7 +340,7 @@ jx help
 == Demo
 
 [%notitle,background-iframe="https://www.youtube.com/embed/kPes3rvT1UM"]
-== jx create spring youtube video
+== Demo Video: jx create spring 
 
 == Demo Overview
 
