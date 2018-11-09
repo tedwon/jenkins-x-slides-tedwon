@@ -337,10 +337,13 @@ jx install --provider=openshift
 jx help
 ----
 
+
 == Demo
+
 
 [%notitle,background-iframe="https://www.youtube.com/embed/kPes3rvT1UM"]
 == Demo Video: jx create spring 
+
 
 == Demo Overview
 
@@ -364,7 +367,8 @@ jx create cluster gke
 
 == Demo - Step 2. Create Cluster GKE
 
-* Record: https://asciinema.org/a/209189
+* Record: https://asciinema.org/a/210859
+** https://asciinema.org/a/209189
 ** https://github.com/tedwon/jenkins-x-slides-tedwon/blob/master/src/main/asciidoc/demo.adoc[demo.adoc]
 ** https://cloud.google.com/kubernetes-engine
 [source,bash,options="nowrap"]
@@ -379,6 +383,7 @@ jx create spring -d web -d actuator
 ----
 
 //[%step]
+* Record: https://asciinema.org/a/210872
 * Automatically set up CI/CD pipelines for new + imported projects
 * Setups up git repository
 * Adds webhooks on git to trigger Jenkins pipelines on PR / master
@@ -396,6 +401,7 @@ image::demo-env-git-repository.png[]
 * Builds and tests
 * Creates preview docker image + helm chart
 * Creates a Preview Environment and comments on the PR with the link
+** Ex: https://github.com/tedwon/demo1030/pull/2
 
 image::pr-comment.png[]
 
