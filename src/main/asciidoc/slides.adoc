@@ -427,7 +427,8 @@ image::release.png[]
 
 == Demo - Step 4. Import Cloud App: Vert.x
 
-* https://asciinema.org/a/209189
+* Record: https://asciinema.org/a/210880
+** https://asciinema.org/a/209189
 * http://start.vertx.io/
 
 ----
