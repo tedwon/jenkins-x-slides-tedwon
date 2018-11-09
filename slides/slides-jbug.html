@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><title>Jenkins X</title><meta content="yes" name="apple-mobile-web-app-capable" /><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" /><link href="reveal.js-3.5.0/css/reveal.css" rel="stylesheet" /><link rel="stylesheet" href="reveal.js-3.5.0/css/theme/beige.css" id="theme" /><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><title>Jenkins X</title><meta content="yes" name="apple-mobile-web-app-capable" /><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" /><link href="reveal.js-3.5.0/css/reveal.css" rel="stylesheet" /><link rel="stylesheet" href="reveal.js-3.5.0/css/theme/league.css" id="theme" /><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
 /*pre.CodeRay {background-color:#f7f7f8;}*/
 .CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
 .CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
@@ -96,7 +96,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <section id="jenkins"><h2>Jenkins</h2><div class="imageblock" style=""><img src="images/jenkins.png" alt="jenkins" width="400" /></div></section>
 <section id="jenkins_x"><h2>Jenkins X</h2><div class="ulist"><ul><li class="fragment"><p><a href="https://jenkins-x.io/" class="bare">https://jenkins-x.io/</a></p></li></ul></div>
 <div class="imageblock" style=""><img src="images/jenkinsx.png" alt="jenkinsx" width="400" /></div></section>
-<section id="jenkins_x_jbug_hands_on"><h2>Jenkins X -  JBUG Hands-on</h2><div class="ulist"><ul><li><p><a href="https://goo.gl/oBbHxA" class="bare">https://goo.gl/oBbHxA</a></p></li></ul></div></section>
+<section id="jenkins_x_jbug_hands_on"><h2>Jenkins X - JBUG Hands-on</h2><div class="ulist"><ul><li><p><a href="https://goo.gl/oBbHxA" class="bare">https://goo.gl/oBbHxA</a></p></li></ul></div></section>
 <section id="james_strachan"><h2>James Strachan</h2><div class="imageblock" style=""><img src="images/jstrachan.png" alt="jstrachan" width="400" /></div></section>
 <section id="james_strachan_2"><h2>James Strachan</h2><div class="paragraph"><p>“The idea of Jenkins X is to give all developers their own naval seafaring butler that can help you sail the seas of continuous delivery.” [1]</p></div></section>
 <section id="james_strachan_3"><h2>James Strachan</h2><div class="paragraph"><p>“Jenkins X의 아이디어는 모든 개발자에게 해군 항해에 필요한 집사를 제공하여 지속적으로 바다를 항해하는 데 도움을주는 것입니다.” [1]</p></div></section>
@@ -272,7 +272,7 @@ Reveal.initialize({
   // Set a per-slide timing for speaker notes, null means none
   defaultTiming: null,
   // Display the page number of the current slide
-  slideNumber: false,
+  slideNumber: true,
   // Push each slide change to the browser history
   history: false,
   // Enable keyboard shortcuts for navigation
@@ -318,11 +318,11 @@ Reveal.initialize({
   previewLinks: false,
   // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
   // NOTE setting the theme in the config no longer works in reveal.js 3.x
-  //theme: Reveal.getQueryHash().theme || 'beige',
+  //theme: Reveal.getQueryHash().theme || 'league',
   // Transition style (e.g., none, fade, slide, convex, concave, zoom)
-  transition: Reveal.getQueryHash().transition || 'linear',
+  transition: Reveal.getQueryHash().transition || 'fade',
   // Transition speed (e.g., default, fast, slow)
-  transitionSpeed: 'default',
+  transitionSpeed: 'slow',
   // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
   backgroundTransition: 'fade',
   // Number of slides away from the current that are visible

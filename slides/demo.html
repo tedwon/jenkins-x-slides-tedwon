@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><title>Demo</title><meta content="yes" name="apple-mobile-web-app-capable" /><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" /><link href="reveal.js-3.5.0/css/reveal.css" rel="stylesheet" /><link rel="stylesheet" href="reveal.js-3.5.0/css/theme/beige.css" id="theme" /><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><title>Demo</title><meta content="yes" name="apple-mobile-web-app-capable" /><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport" /><link href="reveal.js-3.5.0/css/reveal.css" rel="stylesheet" /><link rel="stylesheet" href="reveal.js-3.5.0/css/theme/league.css" id="theme" /><style>/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
 /*pre.CodeRay {background-color:#f7f7f8;}*/
 .CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
 .CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
@@ -95,8 +95,44 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <section id="demo_step_2_create_cluster_gke"><h2>Demo - Step 2. Create Cluster GKE</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code>jx create cluster minikube
 jx create cluster minishift
 jx create cluster gke</code></pre></div></div></section>
+<section id="demo_step_2_create_cluster_minikube"><h2>Demo - Step 2. Create Cluster minikube</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code>asciinema rec -i 1 -t "Creating minikube cluster with Jenkins X --default-environment-prefix=jbug --no-tiller --prow=true option"
+
+jx install --provider=minikube --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx create cluster minikube --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx create cluster minikube --no-tiller --username admin --default-admin-password admin123!
+
+jx create cluster minikube --no-tiller --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx create cluster minikube --default-environment-prefix=jbug --no-tiller --prow=true --username admin --default-admin-password admin123! --verbose=true --log-level debug</code></pre></div></div></section>
+<section id="demo_step_2_create_cluster_minishift"><h2>Demo - Step 2. Create Cluster minishift</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code>asciinema rec -i 1 -t "Creating minishift cluster with Jenkins X --default-environment-prefix=jbug --no-tiller --prow=true option"
+
+jx create cluster minishift --verbose=true --log-level debug
+
+jx create cluster minishift --default-environment-prefix=minishift --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx create cluster minishift --no-tiller --username admin --default-admin-password admin123!
+
+jx create cluster minishift --no-tiller --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx create cluster minishift --default-environment-prefix=jbug --no-tiller --prow=true --username admin --default-admin-password admin123! --verbose=true --log-level debug</code></pre></div></div></section>
 <section id="demo_step_2_create_cluster_gke_2"><h2>Demo - Step 2. Create Cluster GKE</h2><div class="ulist"><ul><li><p><a href="https://asciinema.org/a/209189" class="bare">https://asciinema.org/a/209189</a></p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="CodeRay nowrap"><code class="bash language-bash">jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
+<div class="listingblock"><div class="content"><pre class="CodeRay nowrap"><code class="bash language-bash">asciinema rec -i 1 -t &quot;Creating GKE Kubernetes cluster with Jenkins X at 20181109&quot;
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx create cluster gke --cluster-name jwon-k8s-cluster --username admin --default-admin-password admin123!
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --username admin --default-admin-password admin123!
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --default-environment-prefix=jbug --username admin --default-admin-password admin123!
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --username admin --default-admin-password admin123! --verbose=true --log-level debug --no-tiller --prow=true
 
 # view the current context
 jx ctx -b
@@ -119,74 +155,78 @@ nexus                     http://nexus.jx.35.200.29.158.nip.io
 jx env
 jx get apps</code></pre></div></div></section>
 <section id="demo_step_3_create_cloud_app_spring_boot"><h2>Demo - Step 3. Create Cloud App: Spring Boot</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code>jx create spring -d web -d actuator</code></pre></div></div>
-<div class="listingblock"><div class="content"><pre class="CodeRay nowrap"><code class="bash language-bash">jx create spring -d web -d actuator
-cd demo1031
+<div class="listingblock"><div class="content"><pre class="CodeRay nowrap"><code class="bash language-bash">asciinema rec -i 1 -t &quot;Creating Spring Boot Application on GKE Kubernetes cluster with Jenkins X at 20181109&quot;
+
+jx create spring -d web -d actuator
+cd demo1109
+jx get build logs
+jx get activities
 ls -al
 hub browse
 jx get build logs
 jx get apps
 jx open --env staging
-http://demo1031.jx-staging.35.200.29.158.nip.io/
+http://demo1109.jx-staging.35.200.29.158.nip.io/
 http://jenkins.jx.35.200.29.158.nip.io/job/tedwon/
-http://jenkins.jx.35.200.29.158.nip.io/job/tedwon/job/demo1031/job/master/1/console
+http://jenkins.jx.35.200.29.158.nip.io/job/tedwon/job/demo1109/job/master/1/console
 Jenkins Blue Ocean view
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1031/detail/master/1/pipeline
-https://github.com/tedwon/demo1031/blob/master/Jenkinsfile
-https://github.com/tedwon/demo1031/blob/master/charts/demo1031/Makefile
-https://github.com/tedwon/demo1031/commit/749ba83745b9c92978ea1c5f857e2239f53ee29f
-https://github.com/tedwon/demo1031/releases
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1109/detail/master/1/pipeline
+https://github.com/tedwon/demo1109/blob/master/Jenkinsfile
+https://github.com/tedwon/demo1109/blob/master/charts/demo1109/Makefile
+https://github.com/tedwon/demo1109/commit/749ba83745b9c92978ea1c5f857e2239f53ee29f
+https://github.com/tedwon/demo1109/releases
 
 https://github.com/tedwon?tab=repositories
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-production
-https://github.com/tedwon/demo1031
+https://github.com/tedwon/environment-jwon-k8s-cluster-1109-staging
+https://github.com/tedwon/environment-jwon-k8s-cluster-1109-production
+https://github.com/tedwon/demo1109
 
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/commits/master
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/pull/1
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-staging/commit/e7b59fb5c9a514779e5d850c2d6a81ab6295e6b8
+https://github.com/tedwon/environment-jwon-k8s-cluster-1109-staging/commits/master
+https://github.com/tedwon/environment-jwon-k8s-cluster-1109-staging/pull/1
+https://github.com/tedwon/environment-jwon-k8s-cluster-1109-staging/commit/e7b59fb5c9a514779e5d850c2d6a81ab6295e6b8
 
 jx create issue -t 'add a homepage'
-https://github.com/tedwon/demo1031/issues/1
+https://github.com/tedwon/demo1109/issues/1
 
 git checkout -b wip
-echo &quot;Hello Jenkins X&quot; &gt;&gt; src/main/resources/static/index.html
+echo &quot;Hello Jenkins X v0.0.2&quot; &gt;&gt; src/main/resources/static/index.html
 tree src/main/resources
 git add src
 git status
 git commit -a -m 'add a homepage fixes #1'
 git push origin wip
 hub pull-request
-https://github.com/tedwon/demo1031/pull/2
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1031/detail/PR-2/1/pipeline
-http://demo1031.jx-tedwon-demo1031-pr-2.35.200.29.158.nip.io/
+https://github.com/tedwon/demo1109/pull/2
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1109/detail/PR-2/1/pipeline
+http://demo1109.jx-tedwon-demo1109-pr-2.35.200.29.158.nip.io/
 
 jx env dev
 jx get build logs
 
 # preview for PR reviewer
 jx env                                                                                                                                    tedwon@mymac
-? Pick environment: tedwon-demo1031-pr-2
+? Pick environment: tedwon-demo1109-pr-2
 jx open                                                                                                                                   tedwon@mymac
 Name     URL
-demo1031 http://demo1031.jx-tedwon-demo1031-pr-2.35.200.29.158.nip.io
+demo1109 http://demo1109.jx-tedwon-demo1109-pr-2.35.200.29.158.nip.io
 
 jx get apps
 
-https://github.com/tedwon/demo1031/pull/2
+https://github.com/tedwon/demo1109/pull/2
 LGTM :+1
 merge!
 
 jx get build logs
-&gt; tedwon/demo1031/master
+&gt; tedwon/demo1109/master
 
 jx get apps
 APPLICATION STAGING PODS URL                                             PRODUCTION PODS URL
-demo1031    0.0.2        http://demo1031.jx-staging.35.200.29.158.nip.io
+demo1109    0.0.2        http://demo1109.jx-staging.35.200.29.158.nip.io
 
-https://github.com/tedwon/demo1031/releases
-https://github.com/tedwon/demo1031/releases/tag/v0.0.2
-https://github.com/tedwon/demo1031/issues/1
-https://github.com/tedwon/demo1031/pull/2
+https://github.com/tedwon/demo1109/releases
+https://github.com/tedwon/demo1109/releases/tag/v0.0.2
+https://github.com/tedwon/demo1109/issues/1
+https://github.com/tedwon/demo1109/pull/2
 
 git checkout master
 git pull
@@ -200,23 +240,25 @@ jx promote --version 0.0.2 --env production --timeout 1h
 jx get build logs
 jx get apps
 APPLICATION STAGING PODS URL                                             PRODUCTION PODS URL
-demo1031    0.0.2   1/1  http://demo1031.jx-staging.35.200.29.158.nip.io 0.0.2      1/1  http://demo1031.jx-production.35.200.29.158.nip.io
+demo1109    0.0.2   1/1  http://demo1109.jx-staging.35.200.29.158.nip.io 0.0.2      1/1  http://demo1109.jx-production.35.200.29.158.nip.io
 
 jx env
 jx open
 &gt; production
 Name     URL
-demo1031 http://demo1031.jx-production.35.200.29.158.nip.io</code></pre></div></div></section>
+demo1109 http://demo1109.jx-production.35.200.29.158.nip.io</code></pre></div></div></section>
 <section id="demo_step_3_create_cloud_app_vert_x"><h2>Demo - Step 3. Create Cloud App: Vert.x</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code>jx import</code></pre></div></div>
 <div class="ulist"><ul><li><p><a href="http://start.vertx.io/" class="bare">http://start.vertx.io/</a></p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="CodeRay"><code>unzip starter.zip &amp;&amp; mv starter starter1031
-cd starter1031
+<div class="listingblock"><div class="content"><pre class="CodeRay"><code>asciinema rec -i 1 -t "Creating Vert.x Application on GKE Kubernetes cluster with Jenkins X at 20181109"
+
+unzip starter.zip &amp;&amp; mv starter starter1109
+cd starter1109
 mvn -DskipTests clean package exec:java
 mvn clean
 jx import
 jx console
 http://jenkins.jx.35.200.29.158.nip.io/blue
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fstarter1031/detail/master/1/pipeline
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fstarter1109/detail/master/1/pipeline
 Abort
 mvn -DskipTests clean package
 ls -al target
@@ -224,12 +266,12 @@ code Dockerfile
 git commit -a -m "update Dockerfile"
 git push
 jx get build logs
-&gt; tedwon/starter1031/master
+&gt; tedwon/starter1109/master
 jx open --env staging
 jx get apps
 jx promote --version 1.0.1 --env production --timeout 1h
-https://github.com/tedwon/environment-jwon-k8s-cluster-1030-production/pull/3
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fenvironment-jwon-k8s-cluster-1030-production/detail/PR-3/1/pipeline
+https://github.com/tedwon/environment-jwon-k8s-cluster-1109-production/pull/3
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fenvironment-jwon-k8s-cluster-1109-production/detail/PR-3/1/pipeline
 jx get build logs
 jx get apps</code></pre></div></div></section></div></div><script src="reveal.js-3.5.0/lib/js/head.min.js"></script><script src="reveal.js-3.5.0/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
@@ -240,7 +282,7 @@ Reveal.initialize({
   // Set a per-slide timing for speaker notes, null means none
   defaultTiming: null,
   // Display the page number of the current slide
-  slideNumber: false,
+  slideNumber: true,
   // Push each slide change to the browser history
   history: false,
   // Enable keyboard shortcuts for navigation
@@ -286,11 +328,11 @@ Reveal.initialize({
   previewLinks: false,
   // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
   // NOTE setting the theme in the config no longer works in reveal.js 3.x
-  //theme: Reveal.getQueryHash().theme || 'beige',
+  //theme: Reveal.getQueryHash().theme || 'league',
   // Transition style (e.g., none, fade, slide, convex, concave, zoom)
-  transition: Reveal.getQueryHash().transition || 'linear',
+  transition: Reveal.getQueryHash().transition || 'fade',
   // Transition speed (e.g., default, fast, slow)
-  transitionSpeed: 'default',
+  transitionSpeed: 'slow',
   // Transition style for full page slide backgrounds (e.g., none, fade, slide, convex, concave, zoom)
   backgroundTransition: 'fade',
   // Number of slides away from the current that are visible
