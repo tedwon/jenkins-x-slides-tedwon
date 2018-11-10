@@ -152,11 +152,12 @@
 #helm install chartmuseum/demo101512 --version 0.0.2
 #jx env dev --verbose=true
 #jx status
-#kubectl delete pod maven-bc4h8 --namespace jx
+#kubectl delete pod maven-bc4h8 --namespace jx --force=true --grace-period=0
 #kubectl get pvc # You can check your storage class and persistent volume setup via:
 #kubectl get services
 #kubectl get pods
 #kubectl get pods --all-namespaces
+#kubectl get pods --namespace jx
 #kubectl get pods -o wide
 #kubectl describe pods 
 #kubectl describe node

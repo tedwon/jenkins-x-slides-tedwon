@@ -24,9 +24,13 @@ jx create cluster gke
 ----
 asciinema rec -i 1 -t "Creating minikube cluster with Jenkins X --default-environment-prefix=jbug --no-tiller --prow=true option"
 
-jx install --provider=minikube --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+asciinema rec -i 1 -t "Creating minikube cluster with Jenkins X at 20181110"
+
+jx create cluster minikube --default-environment-prefix=jbug --username admin --default-admin-password admin123!
 
 jx create cluster minikube --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+jx install --provider=minikube --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
 
 jx create cluster minikube --no-tiller --username admin --default-admin-password admin123!
 
@@ -37,10 +41,20 @@ jx create cluster minikube --default-environment-prefix=jbug --no-tiller --prow=
 
 == Demo - Step 2. Create Cluster minishift
 
-----
-asciinema rec -i 1 -t "Creating minishift cluster with Jenkins X --default-environment-prefix=jbug --no-tiller --prow=true option"
+* https://github.com/jenkins-x/jx/issues/2109
 
-jx create cluster minishift --verbose=true --log-level debug
+----
+asciinema rec -i 1 -t "Creating minishift cluster with Jenkins X at 2018111007"
+
+jx install --provider=minishift --no-default-environments=true --username admin --default-admin-password admin123! --verbose=true --log-level='debug'
+
+jx install --default-environment-prefix=minishift --username admin --default-admin-password admin123!
+
+jx create cluster minishift --verbose=true--log-level='debug'
+
+jx create cluster minishift --no-default-environments=true --vm-driver='virtualbox' --verbose=true --log-level='debug'
+
+jx create cluster minishift --username admin --default-admin-password admin123! --verbose=true --log-level debug
 
 jx create cluster minishift --default-environment-prefix=minishift --username admin --default-admin-password admin123! --verbose=true --log-level debug
 
@@ -57,21 +71,26 @@ jx create cluster minishift --default-environment-prefix=jbug --no-tiller --prow
 
 [source,bash,options="nowrap"]
 ----
-asciinema rec -i 1 -t "Creating GKE Kubernetes cluster with Jenkins X at 20181109"
+asciinema rec -i 1 -t "Creating GKE Kubernetes cluster with Jenkins X at 20181110"
 
-jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --username admin --default-admin-password admin123! --verbose=true --log-level debug
+jx create cluster gke --cluster-name jwon-k8s-cluster-1110 --username admin --default-admin-password admin123!
+
 
 jx create cluster gke --cluster-name jwon-k8s-cluster --username admin --default-admin-password admin123!
 
-jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --username admin --default-admin-password admin123!
-
-jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --default-environment-prefix=jbug --username admin --default-admin-password admin123!
-
-jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+jx create cluster gke --cluster-name jwon-k8s-cluster-1110 --username admin --default-admin-password admin123!
 
 
+jx create cluster gke --cluster-name jwon-k8s-cluster-1110 --default-environment-prefix=jbug --username admin --default-admin-password admin123!
 
-jx create cluster gke --cluster-name jwon-k8s-cluster-1109 --username admin --default-admin-password admin123! --verbose=true --log-level debug --no-tiller --prow=true
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1110 --default-environment-prefix=jbug --username admin --default-admin-password admin123! --verbose=true --log-level debug
+
+
+
+
+jx create cluster gke --cluster-name jwon-k8s-cluster-1110 --username admin --default-admin-password admin123! --verbose=true --log-level debug --no-tiller --prow=true
+
 
 # view the current context
 jx ctx -b
@@ -104,10 +123,12 @@ jx create spring -d web -d actuator
 [source,bash,options="nowrap"]
 ----
 
-asciinema rec -i 1 -t "Creating Spring Boot Application on GKE Kubernetes cluster with Jenkins X at 20181109"
+asciinema rec -i 1 -t "Creating Spring Boot Application on GKE Kubernetes cluster with Jenkins X at 20181110"
+
 
 jx create spring -d web -d actuator
-cd demo1109
+cd demo1110
+
 jx get build logs
 jx get activities
 ls -al
@@ -115,27 +136,42 @@ hub browse
 jx get build logs
 jx get apps
 jx open --env staging
-http://demo1109.jx-staging.35.200.29.158.nip.io/
+http://demo1110.jx-staging.35.200.29.158.nip.io/
+
 http://jenkins.jx.35.200.29.158.nip.io/job/tedwon/
-http://jenkins.jx.35.200.29.158.nip.io/job/tedwon/job/demo1109/job/master/1/console
+http://jenkins.jx.35.200.29.158.nip.io/job/tedwon/job/demo1110/job/master/1/console
+
 Jenkins Blue Ocean view
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1109/detail/master/1/pipeline
-https://github.com/tedwon/demo1109/blob/master/Jenkinsfile
-https://github.com/tedwon/demo1109/blob/master/charts/demo1109/Makefile
-https://github.com/tedwon/demo1109/commit/749ba83745b9c92978ea1c5f857e2239f53ee29f
-https://github.com/tedwon/demo1109/releases
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1110/detail/master/1/pipeline
+
+https://github.com/tedwon/demo1110/blob/master/Jenkinsfile
+
+https://github.com/tedwon/demo1110/blob/master/charts/demo1110/Makefile
+
+
+https://github.com/tedwon/demo1110/commit/749ba83745b9c92978ea1c5f857e2239f53ee29f
+
+https://github.com/tedwon/demo1110/releases
+
 
 https://github.com/tedwon?tab=repositories
-https://github.com/tedwon/environment-jwon-k8s-cluster-1109-staging
-https://github.com/tedwon/environment-jwon-k8s-cluster-1109-production
-https://github.com/tedwon/demo1109
+https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging
 
-https://github.com/tedwon/environment-jwon-k8s-cluster-1109-staging/commits/master
-https://github.com/tedwon/environment-jwon-k8s-cluster-1109-staging/pull/1
-https://github.com/tedwon/environment-jwon-k8s-cluster-1109-staging/commit/e7b59fb5c9a514779e5d850c2d6a81ab6295e6b8
+https://github.com/tedwon/environment-jwon-k8s-cluster-1110-production
+
+https://github.com/tedwon/demo1110
+
+
+https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging/commits/master
+
+https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging/pull/1
+
+https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging/commit/e7b59fb5c9a514779e5d850c2d6a81ab6295e6b8
+
 
 jx create issue -t 'add a homepage'
-https://github.com/tedwon/demo1109/issues/1
+https://github.com/tedwon/demo1110/issues/1
+
 
 git checkout -b wip
 echo "Hello Jenkins X v0.0.2" >> src/main/resources/static/index.html
@@ -145,37 +181,53 @@ git status
 git commit -a -m 'add a homepage fixes #1'
 git push origin wip
 hub pull-request
-https://github.com/tedwon/demo1109/pull/2
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1109/detail/PR-2/1/pipeline
-http://demo1109.jx-tedwon-demo1109-pr-2.35.200.29.158.nip.io/
+https://github.com/tedwon/demo1110/pull/2
+
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1110/detail/PR-2/1/pipeline
+
+http://demo1110.jx-tedwon-demo1110-pr-2.35.200.29.158.nip.io/
+
+
 
 jx env dev
 jx get build logs
 
 # preview for PR reviewer
 jx env                                                                                                                                    tedwon@mymac
-? Pick environment: tedwon-demo1109-pr-2
+? Pick environment: tedwon-demo1110-pr-2
+
 jx open                                                                                                                                   tedwon@mymac
 Name     URL
-demo1109 http://demo1109.jx-tedwon-demo1109-pr-2.35.200.29.158.nip.io
+demo1110 http://demo1110.jx-tedwon-demo1110-pr-2.35.200.29.158.nip.io
+
+
+
 
 jx get apps
 
-https://github.com/tedwon/demo1109/pull/2
+https://github.com/tedwon/demo1110/pull/2
+
 LGTM :+1
 merge!
 
 jx get build logs
-> tedwon/demo1109/master
+> tedwon/demo1110/master
+
 
 jx get apps
 APPLICATION STAGING PODS URL                                             PRODUCTION PODS URL
-demo1109    0.0.2        http://demo1109.jx-staging.35.200.29.158.nip.io
+demo1110    0.0.2        http://demo1110.jx-staging.35.200.29.158.nip.io
 
-https://github.com/tedwon/demo1109/releases
-https://github.com/tedwon/demo1109/releases/tag/v0.0.2
-https://github.com/tedwon/demo1109/issues/1
-https://github.com/tedwon/demo1109/pull/2
+
+
+https://github.com/tedwon/demo1110/releases
+
+https://github.com/tedwon/demo1110/releases/tag/v0.0.2
+
+https://github.com/tedwon/demo1110/issues/1
+
+https://github.com/tedwon/demo1110/pull/2
+
 
 git checkout master
 git pull
@@ -189,13 +241,18 @@ jx promote --version 0.0.2 --env production --timeout 1h
 jx get build logs
 jx get apps
 APPLICATION STAGING PODS URL                                             PRODUCTION PODS URL
-demo1109    0.0.2   1/1  http://demo1109.jx-staging.35.200.29.158.nip.io 0.0.2      1/1  http://demo1109.jx-production.35.200.29.158.nip.io
+demo1110    0.0.2   1/1  http://demo1110.jx-staging.35.200.29.158.nip.io 0.0.2      1/1  http://demo1110.jx-production.35.200.29.158.nip.io
+
+
+
 
 jx env
 jx open
 > production
 Name     URL
-demo1109 http://demo1109.jx-production.35.200.29.158.nip.io
+demo1110 http://demo1110.jx-production.35.200.29.158.nip.io
+
+
 ----
 
 
@@ -208,16 +265,20 @@ jx import
 * http://start.vertx.io/
 
 ----
-asciinema rec -i 1 -t "Creating Vert.x Application on GKE Kubernetes cluster with Jenkins X at 20181109"
+asciinema rec -i 1 -t "Creating Vert.x Application on GKE Kubernetes cluster with Jenkins X at 20181110"
 
-unzip starter.zip && mv starter starter1109
-cd starter1109
+
+unzip starter.zip && mv starter starter1110
+
+cd starter1110
+
 mvn -DskipTests clean package exec:java
 mvn clean
 jx import
 jx console
 http://jenkins.jx.35.200.29.158.nip.io/blue
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fstarter1109/detail/master/1/pipeline
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fstarter1110/detail/master/1/pipeline
+
 Abort
 mvn -DskipTests clean package
 ls -al target
@@ -225,13 +286,75 @@ code Dockerfile
 git commit -a -m "update Dockerfile"
 git push
 jx get build logs
-> tedwon/starter1109/master
+> tedwon/starter1110/master
+
 jx open --env staging
 jx get apps
 jx promote --version 1.0.1 --env production --timeout 1h
-https://github.com/tedwon/environment-jwon-k8s-cluster-1109-production/pull/3
-http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fenvironment-jwon-k8s-cluster-1109-production/detail/PR-3/1/pipeline
+https://github.com/tedwon/environment-jwon-k8s-cluster-1110-production/pull/3
+
+http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fenvironment-jwon-k8s-cluster-1110-production/detail/PR-3/1/pipeline
+
 jx get build logs
 jx get apps
 ----
 
+
+== Demo - Install jx on Cluster OpenShift
+
+----
+$ oc login https://openshift.myshiftcluster2.lab.pnq2.cee.redhat.com/  --username=admin --password=RedHat1! --insecure-skip-tls-verify=true
+Login successful.
+
+You have access to the following projects and can switch between them with 'oc project <projectname>':
+
+  * cicd-admin
+    dev-admin
+    stage-admin
+
+Using project "cicd-admin".
+
+
+$ jx install 
+Using helmBinary helm with feature flag: none
+error: Failed to ensure the namespace jx is created: Failed to create Namespace jx namespaces is forbidden: User "admin" cannot create namespaces at the cluster scope: no RBAC policy matched
+Is this an RBAC issue on your cluster?
+----
+
+
+
+== jx create env
+
+* https://jenkins-x.io/about/features/#environments
+
+----
+jx create env
+
+jx create env --verbose=true
+
+jx create env -n prod-usa -l Production-usa --namespace prod-usa --fork-git-repo='git@github.com:tedwon/environment-jbug-staging.git' --verbose=true
+
+jx promote --version 1.0.1 --env prod-usa --timeout 1h
+
+jx delete env
+? Pick environment: staging
+Deleted environment staging
+To delete the associated namespace staging for environment jx-staging then please run this command
+  kubectl delete namespace jx-staging
+
+~ » kubectl delete namespace jx-staging                                                                            tedwon@mymac
+namespace "jx-staging" deleted
+
+
+Hi team, I'm tried to create a new environment by "jx create env" on minishift. But failed with below message:
+~~~
+Using helmBinary helm with feature flag: none
+Applying helm chart at . as release name jx-staging to namespace jx-staging
+EXITCODE   0error: failed to run 'helm upgrade --namespace jx-staging --install --wait --force --timeout 600 jx-staging .' command in directory '.', output: 'Release "jx-staging" does not exist. Installing it now.
+Error: Job failed: BackoffLimitExceeded': exit status 1
+~~~
+What does "Installing it now." mean? How can I install it? It worked on gke cluster.
+
+
+jx promote --diff --from staging --to production
+----

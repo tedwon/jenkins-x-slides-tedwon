@@ -41,6 +41,15 @@ ifndef::sourcedir[:sourcedir: ../../main/java]
 image::jenkins.png[width="300"]
 
 
+[%notitle]
+[background-color="white"]
+== Jenkins
+
+image::jenkins-install.png[canvas,size=contain]
+
+//* source: https://stats.jenkins.io/
+
+
 == Jenkins X
 
 //[%step]
@@ -161,35 +170,7 @@ jx help create cluster
 ** Artifact repository
 * https://helm.sh
 ** Package manager for Kubernetes
-* Chartmuseum
-** Helm Chart repository
 
-
-== How does Jenkins X help?
-
-//[%step]
-* Monocular
-** Web UI for helm charts
-* https://draft.sh
-* Skaffold
-
-[NOTE.speaker]
---
-* Jenkins
-** CI/CD pipeline solution
-* Nexus
-** Artifact repository
-* https://helm.sh
-** Package manager for Kubernetes
-* Chartmuseum
-** Helm Chart repository
-* Monocular
-** Web UI for helm charts
-* https://draft.sh
-** build packs used to bootstrap applications so they build and run on Kubernetes
-* Skaffold
-** Tool for building docker images on kubernetes clusters and then deploying/upgrading them via kubectl or helm
---
 
 == Helm Chart
 
@@ -209,6 +190,39 @@ jx help create cluster
 │   └── service.yaml
 └── values.yaml
 ----
+
+
+== How does Jenkins X help?
+
+//[%step]
+* Chartmuseum
+** Helm Chart repository
+* Monocular
+** Web UI for helm charts
+* https://draft.sh
+** Build packs to bootstrap applications
+* Skaffold
+** Tool for building docker images on kubernetes
+
+
+[NOTE.speaker]
+--
+* Jenkins
+** CI/CD pipeline solution
+* Nexus
+** Artifact repository
+* https://helm.sh
+** Package manager for Kubernetes
+* Chartmuseum
+** Helm Chart repository
+* Monocular
+** Web UI for helm charts
+* https://draft.sh
+** build packs used to bootstrap applications so they build and run on Kubernetes
+** https://github.com/jenkins-x/draft-packs
+* Skaffold
+** Tool for building docker images on kubernetes clusters and then deploying/upgrading them via kubectl or helm
+--
 
 
 [%notitle]
@@ -256,6 +270,31 @@ nexus                     http://nexus.jx.35.200.29.158.nip.io
 * Jenkins http://jenkins.jx.35.200.29.158.nip.io
 * Nexus http://nexus.jx.35.200.29.158.nip.io
 * Monocular http://monocular.jx.35.200.29.158.nip.io
+
+
+[%notitle]
+[background-color="white"]
+== Import Exsting Maven Project
+
+image::starter-diff.png[canvas,size=contain]
+
+
+[%notitle]
+[background-color="white"]
+== Built-in Packs
+
+//* https://github.com/jenkins-x/draft-packs
+//** build packs used to bootstrap applications so they build and run on Kubernetes
+//* selected pack: /Users/tedwon/.jx/draft/packs/github.com/jenkins-x/draft-packs/packs/maven
+
+image::draft-packs-maven.png[canvas,size=contain]
+
+
+[%notitle]
+[background-color="white"]
+== Built-in Packs
+
+image::draft-packs.png[canvas,size=contain]
 
 
 == Environment Promotion via GitOps
@@ -365,6 +404,7 @@ jx create cluster minishift
 jx create cluster gke
 ----
 
+
 == Demo - Step 2. Create Cluster GKE
 
 * Record: https://asciinema.org/a/210859
@@ -375,6 +415,14 @@ jx create cluster gke
 ----
 jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
 ----
+
+
+[%notitle]
+[background-color="white"]
+== Demo - Step 2. Create Cluster GKE
+
+image::gke-free-credit.png[canvas,size=contain]
+
 
 == Demo - Step 3. Create Cloud App: Spring Boot
 
@@ -434,6 +482,14 @@ image::release.png[]
 ----
 jx import
 ----
+
+
+//[%notitle]
+//[background-color="white"]
+== Demo - Step 4. Import Cloud App: Vert.x
+
+//image::vertx-starter.png[canvas,size=contain]
+image::vertx-starter.png[]
 
 
 == Jenkins X Roadmap
