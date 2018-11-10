@@ -1,0 +1,59 @@
+:toc:
+
+
+== jx get preview
+
+[source,options="nowrap"]
+----
+~ » kubectl get pods --namespace jx-pull-2-pr-2                                         tedwon@mymac
+NAME                                     READY   STATUS    RESTARTS   AGE
+jx-pull-2-pr-2-preview-9b4d496bd-lr9vv   1/1     Running   0          4h14m
+
+~ » jx get preview                                                                      tedwon@mymac
+PULL REQUEST                     NAMESPACE      APPLICATION
+https://github.com/pull/2/pull/2 jx-pull-2-pr-2 http://demo1110.jx-pull-2-pr-2.35.243.86.163.nip.io
+----
+
+
+== jx repository
+
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== jx status
+
+
+[source,options="nowrap"]
+----
+$ jx status
+
+Jenkins X checks passed for Cluster(gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110): 1 nodes, memory 13% of 27219384Ki, cpu 34% of 7910m. Jenkins is running at http://jenkins.jx.35.243.86.163.nip.io
+----
+
+
+== jx get apps
+
+== jx delete app tedwon/angular-io-quickstart
+
+----
+~ » jx delete app tedwon/spring-boot-watch-pipeline-activity                            tedwon@mymac
+? You are about to delete these Applications from Jenkins: tedwon/spring-boot-watch-pipeline-activity? You are about to delete these Applications from Jenkins: tedwon/spring-boot-watch-pipeline-activity Yes
+
+Removing app spring-boot-watch-pipeline-activity from environment Staging
+Username for 'https://github.com': tedwon
+Password for 'https://tedwon@github.com':
+? Do you wish to use tedwon as the user name to submit the Pull Request Yes
+Created Pull Request: https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging/pull/14
+
+Waiting for pull request https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging/pull/14 to merge
+Failed to query the Pull Request last commit status for https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging/pull/14 ref ecc3313d326cea510cb949580549f05bc2d84f75 Could not find a status for repository tedwon/environment-jwon-k8s-cluster-1110-staging with ref ecc3313d326cea510cb949580549f05bc2d84f75
+Failed to query the Pull Request last commit status for https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging/pull/14 ref ecc3313d326cea510cb949580549f05bc2d84f75 Could not find a status for repository tedwon/environment-jwon-k8s-cluster-1110-staging with ref ecc3313d326cea510cb949580549f05bc2d84f75
+Request https://github.com/tedwon/environment-jwon-k8s-cluster-1110-staging/pull/14 is merged!
+Removing app spring-boot-watch-pipeline-activity from environment Production
+No changes made to the GitOps Environment source code. Code must be up to date!
+Deleted Applications tedwon/spring-boot-watch-pipeline-activity
+----

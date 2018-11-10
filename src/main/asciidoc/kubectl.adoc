@@ -1,0 +1,445 @@
+:toc:
+
+* kubectl Cheat Sheet https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+kubectl get pods --namespace jx-pull-2-pr-2
+
+Hi James! Thank you so much your reply!!
+
+* PR pipeline build log: http://jenkins.jx.35.243.86.163.nip.io/job/tedwon/job/demo1110/job/PR-2/1/consoleFull
+----
+~ » kubectl get pods --namespace jx-pull-2-pr-2                                         tedwon@mymac
+NAME                                     READY   STATUS    RESTARTS   AGE
+jx-pull-2-pr-2-preview-9b4d496bd-lr9vv   1/1     Running   0          4h14m
+
+~ » jx get preview                                                                      tedwon@mymac
+PULL REQUEST                     NAMESPACE      APPLICATION
+https://github.com/pull/2/pull/2 jx-pull-2-pr-2 http://demo1110.jx-pull-2-pr-2.35.243.86.163.nip.io
+----
+
+
+== kubectl cluster-info
+
+* kubectl cluster-info dump --output-directory=/path/to/cluster-state
+
+[source,options="nowrap"]
+----
+~ » kubectl cluster-info                                                                                                  tedwon@mymac
+Kubernetes master is running at https://35.200.47.253
+GLBCDefaultBackend is running at https://35.200.47.253/api/v1/namespaces/kube-system/services/default-http-backend:http/proxy
+Heapster is running at https://35.200.47.253/api/v1/namespaces/kube-system/services/heapster/proxy
+KubeDNS is running at https://35.200.47.253/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+kubernetes-dashboard is running at https://35.200.47.253/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+Metrics-server is running at https://35.200.47.253/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+----
+
+
+== kubectl top node
+
+[source,options="nowrap"]
+----
+~ » kubectl top node                                                                                                      tedwon@mymac
+NAME                                                  CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
+gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   1508m        19%    15032Mi         56%
+----
+
+
+== kubectl top pod
+
+[source,options="nowrap"]
+----
+~ » kubectl top pod                                                                                                       tedwon@mymac
+NAME                                                CPU(cores)   MEMORY(bytes)
+jenkins-86b9cc9c57-csn5p                            38m          2924Mi
+jenkins-x-chartmuseum-645d78c798-27fkz              0m           6Mi
+jenkins-x-controllercommitstatus-699f656569-db7xc   0m           11Mi
+jenkins-x-controllerrole-66f89b6978-knsfl           0m           11Mi
+jenkins-x-controllerteam-858ff8c6b8-m96jk           0m           10Mi
+jenkins-x-controllerworkflow-c857dd579-cmdfb        0m           16Mi
+jenkins-x-docker-registry-dcb6d6d44-dzpw6           0m           10Mi
+jenkins-x-heapster-96bd95dcf-spcxn                  5m           22Mi
+jenkins-x-mongodb-968b595dd-k2vzm                   14m          111Mi
+jenkins-x-monocular-api-7f97467b88-bjzqt            0m           16Mi
+jenkins-x-monocular-prerender-6d8897856-42n96       0m           260Mi
+jenkins-x-monocular-ui-5f95b677b-pwqst              0m           6Mi
+jenkins-x-nexus-55f87888dc-7n7t7                    11m          1544Mi
+nodejs-ht3st                                        921m         360Mi
+----
+
+
+== kubectl logs jx-staging-demo-thorntail-102100-c7898d496-lrr5n
+
+* kubectl logs --tail=1000 jx-staging-demo-thorntail-102100-c7898d496-lrr5n
+
+[source,options="nowrap"]
+----
+kubectl logs jx-staging-starter1110-f547c98b-vggxw --namespace jx-staging
+kubectl logs jx-staging-starter1110-f547c98b-vggxw --namespace jx-staging --tail=1000 -f
+----
+
+
+== kubectl describe pod jx-staging-demo-thorntail-102100-c7898d496-lrr5n
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== kubectl config view
+
+* kubectl config view | grep namespace:
+
+[source,options="nowrap"]
+----
+~ » kubectl config view                                                                                                   tedwon@mymac
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://35.200.47.253
+  name: gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110
+contexts:
+- context:
+    cluster: gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110
+    namespace: jx
+    user: gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110
+  name: gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110
+current-context: gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110
+kind: Config
+preferences: {}
+users:
+- name: gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110
+  user:
+    auth-provider:
+      config:
+        access-token: ya29.GlxQBleeXCqrdKYXwxYjY4AqPPmfMEeD4NLB_BcDey3u43m2B4y7ziDL42OmPIigoYf-Lqm9JPQsdFVqUBobw6B5Ek_Hmk7K2b9JyoYdmig8Ya0cZx9mWN421xOOHQ
+        cmd-args: config config-helper --format=json
+        cmd-path: /Users/tedwon/google-cloud-sdk/bin/gcloud
+        expiry: 2018-11-10T07:15:47Z
+        expiry-key: '{.credential.token_expiry}'
+        token-key: '{.credential.access_token}'
+      name: gcp
+----
+
+
+== kubectl config current-context
+
+[source,options="nowrap"]
+----
+~ » kubectl config current-context                                                                                        tedwon@mymac
+gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110
+----
+
+
+== kubectl get namespaces
+
+[source,options="nowrap"]
+----
+~ » kubectl get namespaces                                                                                                tedwon@mymac
+NAME             STATUS   AGE
+default          Active   4h15m
+jx               Active   4h14m
+jx-production    Active   4h1m
+jx-pull-2-pr-2   Active   3h38m
+jx-staging       Active   4h1m
+kube-public      Active   4h15m
+kube-system      Active   4h15m
+----
+
+
+== kubectl api-resources
+
+[source,options="nowrap"]
+----
+$ kubectl api-resources                                                                                                 tedwon@mymac
+NAME                              SHORTNAMES                             APIGROUP                       NAMESPACED   KIND
+bindings                                                                                                true         Binding
+componentstatuses                 cs                                                                    false        ComponentStatus
+configmaps                        cm                                                                    true         ConfigMap
+endpoints                         ep                                                                    true         Endpoints
+events                            ev                                                                    true         Event
+limitranges                       limits                                                                true         LimitRange
+namespaces                        ns                                                                    false        Namespace
+nodes                             no                                                                    false        Node
+persistentvolumeclaims            pvc                                                                   true         PersistentVolumeClaim
+persistentvolumes                 pv                                                                    false        PersistentVolume
+pods                              po                                                                    true         Pod
+podtemplates                                                                                            true         PodTemplate
+replicationcontrollers            rc                                                                    true         ReplicationController
+resourcequotas                    quota                                                                 true         ResourceQuota
+secrets                                                                                                 true         Secret
+serviceaccounts                   sa                                                                    true         ServiceAccount
+services                          svc                                                                   true         Service
+mutatingwebhookconfigurations                                            admissionregistration.k8s.io   false        MutatingWebhookConfiguration
+validatingwebhookconfigurations                                          admissionregistration.k8s.io   false        ValidatingWebhookConfiguration
+customresourcedefinitions         crd                                    apiextensions.k8s.io           false        CustomResourceDefinition
+apiservices                                                              apiregistration.k8s.io         false        APIService
+controllerrevisions                                                      apps                           true         ControllerRevision
+daemonsets                        ds                                     apps                           true         DaemonSet
+deployments                       deploy                                 apps                           true         Deployment
+replicasets                       rs                                     apps                           true         ReplicaSet
+statefulsets                      sts                                    apps                           true         StatefulSet
+tokenreviews                                                             authentication.k8s.io          false        TokenReview
+localsubjectaccessreviews                                                authorization.k8s.io           true         LocalSubjectAccessReview
+selfsubjectaccessreviews                                                 authorization.k8s.io           false        SelfSubjectAccessReview
+selfsubjectrulesreviews                                                  authorization.k8s.io           false        SelfSubjectRulesReview
+subjectaccessreviews                                                     authorization.k8s.io           false        SubjectAccessReview
+horizontalpodautoscalers          hpa                                    autoscaling                    true         HorizontalPodAutoscaler
+cronjobs                                                                 batch                          true         CronJob
+jobs                                                                     batch                          true         Job
+certificatesigningrequests        csr                                    certificates.k8s.io            false        CertificateSigningRequest
+daemonsets                        ds                                     extensions                     true         DaemonSet
+deployments                       deploy                                 extensions                     true         Deployment
+ingresses                         ing                                    extensions                     true         Ingress
+networkpolicies                   netpol                                 extensions                     true         NetworkPolicy
+podsecuritypolicies               psp                                    extensions                     false        PodSecurityPolicy
+replicasets                       rs                                     extensions                     true         ReplicaSet
+commitstatuses                    commitstatus                           jenkins.io                     true         CommitStatus
+environmentrolebindings           envrolebindings,envrolebinding,envrb   jenkins.io                     true         EnvironmentRoleBinding
+environments                      env                                    jenkins.io                     true         Environment
+gitservices                       gits                                   jenkins.io                     true         GitService
+pipelineactivities                activity,act                           jenkins.io                     true         PipelineActivity
+releases                          rel                                    jenkins.io                     true         Release
+teams                             tm                                     jenkins.io                     true         Team
+users                             usr                                    jenkins.io                     true         User
+workflows                         flow                                   jenkins.io                     true         Workflow
+nodes                                                                    metrics.k8s.io                 false        NodeMetrics
+pods                                                                     metrics.k8s.io                 true         PodMetrics
+networkpolicies                   netpol                                 networking.k8s.io              true         NetworkPolicy
+poddisruptionbudgets              pdb                                    policy                         true         PodDisruptionBudget
+clusterrolebindings                                                      rbac.authorization.k8s.io      false        ClusterRoleBinding
+clusterroles                                                             rbac.authorization.k8s.io      false        ClusterRole
+rolebindings                                                             rbac.authorization.k8s.io      true         RoleBinding
+roles                                                                    rbac.authorization.k8s.io      true         Role
+storageclasses                    sc                                     storage.k8s.io                 false        StorageClass
+----
+
+
+== 
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== 
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== 
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== 
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== 
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== 
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== kubectl get pods --namespace jx
+
+[source,options="nowrap"]
+----
+~ » kubectl get pods --namespace jx-staging                                            tedwon@mymac
+NAME                                                      READY   STATUS    RESTARTS   AGE
+jx-staging-demo1110-6c64f88fdf-5srkb                      1/1     Running   1          7h2m
+jx-staging-golang-http-78f9479db5-n285k                   1/1     Running   0          3h40m
+jx-staging-node-http-b6b58bc86-4q24l                      1/1     Running   0          3h36m
+jx-staging-python-http-6d98d6df46-st462                   1/1     Running   0          3h34m
+jx-staging-rails-shopping-cart-7f556d59d4-njfdv           1/1     Running   5          3h29m
+jx-staging-rails-shopping-cart-7f556d59d4-x9kgc           1/1     Running   6          3h29m
+jx-staging-react-quickstart-744467f58b-bmbgd              1/1     Running   0          3h32m
+jx-staging-scala-akka-http-quickstart-75f669554f-z4jbq    1/1     Running   0          3h22m
+jx-staging-spring-boot-rest-prometheus-7888c87895-jqgjf   1/1     Running   1          176m
+jx-staging-starter1110-f547c98b-vggxw                     1/1     Running   0          6h23m
+jx-staging-vertx-rest-prometheus-bd6974574-l54hj          1/1     Running   0          3h30m
+----
+
+
+== kubectl get pods -o wide
+
+[source,options="nowrap"]
+----
+~ » kubectl get pods -o wide                                                            tedwon@mymac
+NAME                                                READY   STATUS      RESTARTS   AGE     IP            NODE                                                  NOMINATED NODE
+jenkins-86b9cc9c57-csn5p                            1/1     Running     0          7h27m   10.12.0.27    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-chartmuseum-645d78c798-27fkz              1/1     Running     0          7h27m   10.12.0.24    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-controllercommitstatus-699f656569-db7xc   1/1     Running     0          7h27m   10.12.0.16    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-controllerrole-66f89b6978-knsfl           1/1     Running     0          7h27m   10.12.0.15    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-controllerteam-858ff8c6b8-m96jk           1/1     Running     0          7h27m   10.12.0.17    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-controllerworkflow-c857dd579-cmdfb        1/1     Running     0          7h27m   10.12.0.18    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-docker-registry-dcb6d6d44-dzpw6           1/1     Running     0          7h27m   10.12.0.25    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-gcactivities-1541831400-mpbvf             0/1     Completed   0          3h40m   10.12.0.70    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-gcactivities-1541840400-zqdlv             0/1     Completed   0          70m     10.12.0.117   gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-gcactivities-1541842200-9p2t9             0/1     Completed   0          40m     10.12.0.119   gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-gcpreviews-1541818800-qcqdg               0/1     Completed   0          7h10m   10.12.0.35    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-gcpreviews-1541829600-gqc7z               0/1     Completed   0          4h10m   10.12.0.54    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-gcpreviews-1541840400-bt66b               0/1     Completed   0          70m     10.12.0.118   gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-heapster-96bd95dcf-spcxn                  2/2     Running     0          7h27m   10.12.0.19    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-mongodb-968b595dd-k2vzm                   1/1     Running     1          7h27m   10.12.0.26    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-monocular-api-7f97467b88-bjzqt            1/1     Running     2          7h27m   10.12.0.20    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-monocular-prerender-6d8897856-42n96       1/1     Running     0          7h27m   10.12.0.23    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-monocular-ui-5f95b677b-pwqst              1/1     Running     0          7h27m   10.12.0.22    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+jenkins-x-nexus-55f87888dc-7n7t7                    1/1     Running     0          7h27m   10.12.0.28    gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   <none>
+----
+
+
+== kubectl describe pods
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== kubectl describe node
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== kubectl get services
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== kubectl get pvc 
+
+* You can check your storage class and persistent volume setup via:
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== kubectl get pods
+
+[source,options="nowrap"]
+----
+
+----
+
+== kubectl get pods --namespace jx
+
+* kubectl get pods --namespace jx-staging
+
+[source,options="nowrap"]
+----
+~ » kubectl get pods --namespace jx-staging                                                                               tedwon@mymac
+NAME                                                             READY   STATUS             RESTARTS   AGE
+jx-staging-angular-io-quickstart-5f6559f54d-7576s                0/1     CrashLoopBackOff   6          9m8s
+jx-staging-demo1110-6c64f88fdf-5srkb                             1/1     Running            0          3h54m
+jx-staging-golang-http-78f9479db5-n285k                          1/1     Running            0          32m
+jx-staging-node-http-b6b58bc86-4q24l                             1/1     Running            0          29m
+jx-staging-python-http-6d98d6df46-st462                          1/1     Running            0          27m
+jx-staging-rails-shopping-cart-7f556d59d4-njfdv                  1/1     Running            0          21m
+jx-staging-rails-shopping-cart-7f556d59d4-x9kgc                  1/1     Running            0          21m
+jx-staging-react-quickstart-744467f58b-bmbgd                     1/1     Running            0          24m
+jx-staging-scala-akka-http-quickstart-75f669554f-z4jbq           1/1     Running            0          14m
+jx-staging-spring-boot-watch-pipeline-activity-dd4c6995b-dkj55   0/1     CrashLoopBackOff   7          19m
+jx-staging-starter1110-f547c98b-vggxw                            1/1     Running            0          3h16m
+jx-staging-vertx-rest-prometheus-bd6974574-l54hj                 1/1     Running            0          23m
+----
+
+== kubectl get pods -o wide
+
+[source,options="nowrap"]
+----
+
+----
+
+
+== kubectl get pods --all-namespaces
+
+[source,options="nowrap"]
+----
+~ » kubectl get pods --all-namespaces                                                                                     tedwon@mymac
+NAMESPACE        NAME                                                             READY   STATUS              RESTARTS   AGE
+jx-pull-2-pr-2   jx-pull-2-pr-2-preview-9b4d496bd-lr9vv                           1/1     Running             0          3h24m
+jx-staging       jx-staging-demo1110-6c64f88fdf-5srkb                             1/1     Running             0          3h30m
+jx-staging       jx-staging-golang-http-78f9479db5-n285k                          1/1     Running             0          7m52s
+jx-staging       jx-staging-node-http-b6b58bc86-4q24l                             1/1     Running             0          4m23s
+jx-staging       jx-staging-python-http-6d98d6df46-st462                          1/1     Running             0          2m17s
+jx-staging       jx-staging-react-quickstart-744467f58b-bmbgd                     0/1     ContainerCreating   0          2s
+jx-staging       jx-staging-starter1110-f547c98b-vggxw                            1/1     Running             0          171m
+jx               jenkins-86b9cc9c57-csn5p                                         1/1     Running             0          3h52m
+jx               jenkins-x-chartmuseum-645d78c798-27fkz                           1/1     Running             0          3h52m
+jx               jenkins-x-controllercommitstatus-699f656569-db7xc                1/1     Running             0          3h52m
+jx               jenkins-x-controllerrole-66f89b6978-knsfl                        1/1     Running             0          3h52m
+jx               jenkins-x-controllerteam-858ff8c6b8-m96jk                        1/1     Running             0          3h52m
+jx               jenkins-x-controllerworkflow-c857dd579-cmdfb                     1/1     Running             0          3h52m
+jx               jenkins-x-docker-registry-dcb6d6d44-dzpw6                        1/1     Running             0          3h52m
+jx               jenkins-x-gcactivities-1541820600-5pv6z                          0/1     Completed           0          3h5m
+jx               jenkins-x-gcactivities-1541829600-mn796                          0/1     Completed           0          35m
+jx               jenkins-x-gcactivities-1541831400-mpbvf                          0/1     Completed           0          5m22s
+jx               jenkins-x-gcpreviews-1541818800-qcqdg                            0/1     Completed           0          3h35m
+jx               jenkins-x-gcpreviews-1541829600-gqc7z                            0/1     Completed           0          35m
+jx               jenkins-x-heapster-96bd95dcf-spcxn                               2/2     Running             0          3h52m
+jx               jenkins-x-mongodb-968b595dd-k2vzm                                1/1     Running             1          3h52m
+jx               jenkins-x-monocular-api-7f97467b88-bjzqt                         1/1     Running             2          3h52m
+jx               jenkins-x-monocular-prerender-6d8897856-42n96                    1/1     Running             0          3h52m
+jx               jenkins-x-monocular-ui-5f95b677b-pwqst                           1/1     Running             0          3h52m
+jx               jenkins-x-nexus-55f87888dc-7n7t7                                 1/1     Running             0          3h52m
+jx               maven-0vmqh                                                      2/2     Running             0          2m57s
+jx               maven-69sk3                                                      2/2     Running             0          27s
+jx               maven-b25z7                                                      2/2     Running             0          4m7s
+jx               maven-hr9x6                                                      2/2     Terminating         0          47s
+jx               maven-rwms6                                                      2/2     Running             0          67s
+jx               nodejs-tb0l2                                                     2/2     Running             0          7m17s
+jx               ruby-1948f                                                       2/2     Running             0          8m27s
+jx               scala-lr0kf                                                      2/2     Running             0          6m27s
+kube-system      event-exporter-v0.1.9-5c8fb98cdb-bf5pm                           2/2     Running             0          4h
+kube-system      fluentd-gcp-v2.0.17-77pht                                        2/2     Running             0          4h
+kube-system      heapster-v1.5.2-54959ff845-r4zdn                                 3/3     Running             0          4h
+kube-system      jxing-nginx-ingress-controller-df95bd99d-85rnw                   1/1     Running             0          3h58m
+kube-system      jxing-nginx-ingress-default-backend-5dbcb4b48b-c6rb7             1/1     Running             0          3h58m
+kube-system      kube-dns-autoscaler-69c5cbdcdd-csx2b                             1/1     Running             0          4h
+kube-system      kube-dns-db496df86-jwz9t                                         4/4     Running             0          4h
+kube-system      kube-proxy-gke-jwon-k8s-cluster-111-default-pool-445766d6-n6k4   1/1     Running             0          4h
+kube-system      kubernetes-dashboard-86f66bfdbf-ttmrd                            1/1     Running             0          4h
+kube-system      l7-default-backend-57856c5f55-nzklk                              1/1     Running             0          4h
+kube-system      metrics-server-v0.2.1-7f8dd98c8f-pf488                           2/2     Running             0          4h
+kube-system      tiller-deploy-9bdb7c6bc-t8w8p                                    1/1     Running             0          4h
+----
+
+
+== kubectl delete pod maven-bc4h8 --namespace jx --force=true --grace-period=0
+
+[source,options="nowrap"]
+----
+
+----

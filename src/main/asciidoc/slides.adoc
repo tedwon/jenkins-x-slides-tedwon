@@ -81,7 +81,12 @@ image::jenkinsx.png[width="300"]
 
 == Started by James Strachan
 
-image::jstrachan.png[width="400"]
+
+[%notitle]
+[background-color="white"]
+== Started by James Strachan
+
+image::twitter.png[canvas,size=contain]
 
 
 == Started by James Strachan
@@ -132,10 +137,6 @@ image::jstrachan.png[width="400"]
 
 
 == Supported Cloud Providers
-
-----
-jx help create cluster
-----
 
 //[%step]
 * Google Container Engine
@@ -260,23 +261,41 @@ image::monocular.png[background, size=cover]
 ----
 jx open
 
-jenkins                   http://jenkins.jx.35.200.29.158.nip.io
-jenkins-x-chartmuseum     http://chartmuseum.jx.35.200.29.158.nip.io
-jenkins-x-docker-registry http://docker-registry.jx.35.200.29.158.nip.io
-jenkins-x-monocular-ui    http://monocular.jx.35.200.29.158.nip.io
-nexus                     http://nexus.jx.35.200.29.158.nip.io
+
+jenkins                   http://jenkins.jx.x.x.x.x.nip.io
+
+jenkins-x-chartmuseum     http://chartmuseum.jx.x.x.x.x.nip.io
+
+jenkins-x-docker-registry http://docker-registry.jx.x.x.x.x.nip.
+
+jenkins-x-monocular-ui    http://monocular.jx.x.x.x.x.nip.io
+
+nexus                     http://nexus.jx.x.x.x.x.nip.io
 ----
 
-* Jenkins http://jenkins.jx.35.200.29.158.nip.io
-* Nexus http://nexus.jx.35.200.29.158.nip.io
-* Monocular http://monocular.jx.35.200.29.158.nip.io
+
+== Import Maven Project
 
 
 [%notitle]
 [background-color="white"]
-== Import Exsting Maven Project
+== Import Maven Project
 
 image::starter-diff.png[canvas,size=contain]
+
+
+[%notitle]
+[background-color="white"]
+== Dockerfile
+
+image::dockerfile.png[canvas,size=contain]
+
+
+[%notitle]
+[background-color="white"]
+== Jenkinsfile
+
+image::jenkinsfile.png[canvas,size=contain]
 
 
 [%notitle]
@@ -301,6 +320,7 @@ image::draft-packs.png[canvas,size=contain]
 
 ----
 jx env
+
 ? Pick environment:  [Use arrows to move, type to filter]
 > dev
   production
@@ -311,6 +331,42 @@ jx env
 * Development Environment
 * Staging Environment
 * Production Environment
+
+
+[%notitle]
+//[background-color="white"]
+== jx get environments
+
+image::jx-get-env.png[canvas,size=contain]
+
+
+== Demo & Environment Git Repository
+
+image::demo-env-git-repository.png[]
+
+
+//[background-color="white"]
+== jx get applications
+
+image::jx-get-apps.png[]
+
+
+[%notitle]
+=== jx get applications
+
+image::jx-get-apps.png[canvas,size=contain]
+
+
+//[background-color="white"]
+== jx get previews
+
+image::jx-get-previews.png[]
+
+
+[%notitle]
+=== jx get previews
+
+image::jx-get-previews.png[canvas,size=contain]
 
 
 [%notitle]
@@ -352,29 +408,47 @@ sudo mv jx /usr/local/bin
 == How do we setup Kubernetes + Jenkins X?
 
 * If using the public cloud use:
-----
+
 jx create cluster aws
+
 jx create cluster gke
+
 jx create cluster aks
-----
+
 
 == How do we setup Kubernetes + Jenkins X?
 
 
 * If you have a cluster already - ensure RBAC enabled then:
-----
+
 jx install --provider=openshift
-----
 
 
-== jx Commands
 
-* jx command line tool
-* https://jenkins-x.io/commands/jx/
+== Create Cluster GKE
 
-----
-jx help
-----
+Google Container Engine $300 free credit
+
+https://console.cloud.google.com/freetrial
+
+
+[%notitle]
+[background-color="white"]
+== Create Cluster GKE
+
+image::gke-free-credit.png[canvas,size=contain]
+
+
+== VSCode Jenkins X Extension
+
+
+[%notitle]
+[background-color="white"]
+== VSCode Jenkins X Extension
+
+//* https://github.com/jenkins-x/vscode-jx-tools
+
+image::vscode.png[canvas,size=contain]
 
 
 == Demo
@@ -384,51 +458,23 @@ jx help
 == Demo Video: jx create spring 
 
 
-== Demo Overview
+== Demo - Deploy Spring Boot app
 
-//[%step]
-* Step 1. Install jx
-** https://jenkins-x.io/getting-started/install/ 
-* Step 2. Create Cluster GKE
-** https://jenkins-x.io/demos/create_cluster_gke/ 
-* Step 3. Create Cloud App: Spring Boot
-** http://jenkins-x.io/demos/create_spring/
-* Step 4. Import Cloud App: Vert.x
-
-
-== Demo - Step 2. Create Cluster GKE
-
-----
-jx create cluster minikube
-jx create cluster minishift
 jx create cluster gke
-----
 
 
-== Demo - Step 2. Create Cluster GKE
+== Demo - Deploy Spring Boot app
 
-* Record: https://asciinema.org/a/210859
-** https://asciinema.org/a/209189
-** https://github.com/tedwon/jenkins-x-slides-tedwon/blob/master/src/main/asciidoc/demo.adoc[demo.adoc]
-** https://cloud.google.com/kubernetes-engine
-[source,bash,options="nowrap"]
-----
-jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
-----
+* Create Cluster GKE Record: 
+** https://asciinema.org/a/210859
 
 
-[%notitle]
-[background-color="white"]
-== Demo - Step 2. Create Cluster GKE
+== Demo - Deploy Spring Boot app
 
-image::gke-free-credit.png[canvas,size=contain]
-
-
-== Demo - Step 3. Create Cloud App: Spring Boot
-
-----
 jx create spring -d web -d actuator
-----
+
+
+== Demo - Deploy Spring Boot app
 
 //[%step]
 * Record: https://asciinema.org/a/210872
@@ -438,58 +484,47 @@ jx create spring -d web -d actuator
 * Triggers the first pipeline
 
 
-== Demo & Environment Git Repository
+== Demo - Jenkins X on Pull Request
 
-image::demo-env-git-repository.png[]
+----
+jx create issue -t 'add a homepage'
 
+git checkout -b wip
 
-== Jenkins X on Pull Request
+vi src/main/resources/static/index.html
+
+git add src
+
+git commit -a -m 'add a homepage fixes #1'
+
+git push origin wip
+
+hub pull-request
+----
+
+== Demo - Jenkins X on Pull Request
 
 //[%step]
 * Builds and tests
 * Creates preview docker image + helm chart
 * Creates a Preview Environment and comments on the PR with the link
-** Ex: https://github.com/tedwon/demo1030/pull/2
+** https://github.com/tedwon/demo1030/pull/2
 
 image::pr-comment.png[]
 
 
-== Jenkins X on Release (push to master)
+== Demo - Jenkins X promotion via GitOps
 
-//[%step]
-* Builds and tests
-* Creates semantic release version
-* Publishes versioned artifacts, docker image & helm chart
-
-image::release.png[]
+jx promote --version 0.0.2 --env production
 
 
-== Jenkins X promotion via GitOps
+== Demo - Jenkins X promotion via GitOps
 
 //[%step]
 * Each environment stores its configuration as helm charts in a git repository
 ** Reuse the Pull Request workflow for changes
 * To promote a version to, say, Production Jenkins X submits a Pull Request
 ** The Promote step waits for the Pull Request CI build to complete
-
-
-== Demo - Step 4. Import Cloud App: Vert.x
-
-* Record: https://asciinema.org/a/210880
-** https://asciinema.org/a/209189
-* http://start.vertx.io/
-
-----
-jx import
-----
-
-
-//[%notitle]
-//[background-color="white"]
-== Demo - Step 4. Import Cloud App: Vert.x
-
-//image::vertx-starter.png[canvas,size=contain]
-image::vertx-starter.png[]
 
 
 == Jenkins X Roadmap
@@ -502,13 +537,15 @@ https://jenkins-x.io/contribute/roadmap/
 * https://jenkins-x.io/getting-started/
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
 
+image::jbugkorea_logotype_600px.gif[width="700"]
+
 
 //[background-color="navy"]
 == Thank you
 
 image::jbugkorea_logotype_600px.gif[width="700"]
 
-facebook.com/groups/jbossusergroup/
+https://www.facebook.com/groups/jbossusergroup/[facebook.com/groups/jbossusergroup/]
 
 
 == References

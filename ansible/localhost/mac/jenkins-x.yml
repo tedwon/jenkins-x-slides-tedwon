@@ -177,3 +177,6 @@
 #kubectl get namespaces
 #kubectl api-resources
 #jx help create
+#jx repository
+# jx status
+# Jenkins X checks passed for Cluster(gke_jwon-k8s-project_asia-northeast1-a_jwon-k8s-cluster-1110): 1 nodes, memory 13% of 27219384Ki, cpu 34% of 7910m. Jenkins is running at http://jenkins.jx.35.243.86.163.nip.io
