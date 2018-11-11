@@ -37,7 +37,7 @@ Jenkins X checks passed for Cluster(gke_jwon-k8s-project_asia-northeast1-a_jwon-
 
 == jx get apps
 
-== jx delete app tedwon/angular-io-quickstart
+== jx delete app tedwon/rails-shopping-cart
 
 ----
 ~ » jx delete app tedwon/spring-boot-watch-pipeline-activity                            tedwon@mymac

@@ -181,6 +181,8 @@ git status
 git commit -a -m 'add a homepage fixes #1'
 git push origin wip
 hub pull-request
+jx create pullRequest -t "add a homepage fixes #1" --body ""
+
 https://github.com/tedwon/demo1110/pull/2
 
 http://jenkins.jx.35.200.29.158.nip.io/blue/organizations/jenkins/tedwon%2Fdemo1110/detail/PR-2/1/pipeline

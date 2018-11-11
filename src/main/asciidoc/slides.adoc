@@ -145,7 +145,8 @@ image::twitter.png[canvas,size=contain]
 * Azure Container Service
 * IBM Cloud Kubernetes Service
 * Oracle Cloud Container Engine
-** https://jenkins-x.io/commands/jx_create_cluster/
+
+https://jenkins-x.io/commands/jx_create_cluster/
 
 [NOTE.speaker]
 --
@@ -499,7 +500,7 @@ git commit -a -m 'add a homepage fixes #1'
 
 git push origin wip
 
-hub pull-request
+jx create pullRequest -t "add a homepage fixes #1"
 ----
 
 == Demo - Jenkins X on Pull Request
@@ -532,12 +533,27 @@ jx promote --version 0.0.2 --env production
 https://jenkins-x.io/contribute/roadmap/
 
 
+== Jenkins X Slack
+
+
+[%notitle]
+//[background-color="white"]
+== Jenkins X Slack
+
+image::slack.png[canvas,size=contain]
+
+
 == Try it out!
 
 * https://jenkins-x.io/getting-started/
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
 
 image::jbugkorea_logotype_600px.gif[width="700"]
+
+
+== Special Thanks to
+
+Jungho Cha <jcha@redhat.com>
 
 
 //[background-color="navy"]
