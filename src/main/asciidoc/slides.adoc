@@ -500,7 +500,7 @@ git commit -a -m 'add a homepage fixes #1'
 
 git push origin wip
 
-jx create pullRequest -t "add a homepage fixes #1"
+jx create pullrequest -t "add a homepage fixes #1"
 ----
 
 == Demo - Jenkins X on Pull Request
