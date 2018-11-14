@@ -58,6 +58,13 @@ image::jenkins-install.png[canvas,size=contain]
 image::jenkinsx.png[width="300"]
 
 
+== Jenkins X - What we need to do
+
+Code change => Pull Request => Review
+
+=> Merge => Staging => Production
+
+
 == Transformation of Development Platform
 
 //[%step]
@@ -174,26 +181,6 @@ https://jenkins-x.io/commands/jx_create_cluster/
 ** Package manager for Kubernetes
 
 
-== Helm Chart
-
-* Helm Chart is a packaging format. 
-* A chart is a collection of files that describe a related set of Kubernetes resources.
-----
-~/demo/charts/demo(master) » tree .
-.
-├── Chart.yaml
-├── Makefile
-├── README.md
-├── charts
-├── templates
-│   ├── NOTES.txt
-│   ├── _helpers.tpl
-│   ├── deployment.yaml
-│   └── service.yaml
-└── values.yaml
-----
-
-
 == How does Jenkins X help?
 
 //[%step]
@@ -225,6 +212,26 @@ https://jenkins-x.io/commands/jx_create_cluster/
 * Skaffold
 ** Tool for building docker images on kubernetes clusters and then deploying/upgrading them via kubectl or helm
 --
+
+
+== Helm Chart
+
+* Helm Chart is a packaging format. 
+* A chart is a collection of files that describe a related set of Kubernetes resources.
+----
+~/demo/charts/demo(master) » tree .
+.
+├── Chart.yaml
+├── Makefile
+├── README.md
+├── charts
+├── templates
+│   ├── NOTES.txt
+│   ├── _helpers.tpl
+│   ├── deployment.yaml
+│   └── service.yaml
+└── values.yaml
+----
 
 
 [%notitle]

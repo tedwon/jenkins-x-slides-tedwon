@@ -1,0 +1,410 @@
+http://jx-slides.jx-production.35.243.86.163.nip.io/slides.html
+
+* file:///Users/tedwon/jx/jenkins-x-slides-tedwon/target/generated-slides/slides.html
+
+= Jenkins X - automated CI/CD solution for cloud native apps on Kubernetes
+
+* my PT script at 공감세미나
+
+== Title
+
+안녕하세요, 원종석 이라고 합니다.
+이번 시간에는 Kubernetes CI/CD 솔루션, Jenkins X에 관해서 소개해드리고자 합니다.
+만약 아직 Kubernetes에 경험이 없으신 개발자분들이거나, Kubernetes에 관심이 있으신 분들이라면 도움이 되실만한 내용일 것입니다.
+
+== I am a Red Hat JBoss Senior SME at Seoul
+
+제가 했던 서비스 개발 로는 
+
+저는 
+
+다음에서 나를 위한 뉴스 추천, 개인화 뉴스 추천 서비스, 올레TV의 실시간 시청률 계산 시스템, 라인 모바일 광고 플랫폼 개발을 했었고 
+
+== Software Maintenance Engineer
+
+지금은 Red Hat에서 JBoss 미들웨어 기술 지원 엔지니어로 이슈 분석 및 버그 패치 업무를 수행하고 있습니다.
+
+== Jenkins vs Jenkis X
+
+== Jenkins
+
+Jenkins 자체는 이미 많은 개발자 분들이 알고 계실 꺼에요. .
+2004년에 Hudson이라는 이름으로 시작이되었습니다.
+Jenkins 덕분에 좀 더 자주 빌드를 할 수 있게되면서 소스 코드에 결함이 없는지 체크하기 쉽게 되었습니다.
+단순한 빌드만이 아니라 plugin으로 기능을 확장하면서 더 다양한 작업이 가능해졌습니다. 제가 전에 있던 팀에서는 Jenkins가 배치 잡 서버였습니다. 너무나 중요한 핵심 인프라였고 그래서 팀은 절대적인 availiablity 를 원했습니다. 이중화 구성, 다른 제품 고려등 다양한 개선 방안을 고려했었지만 결국 마땅한 좋은 방법이 없었습니다. 하지만 이제는 kubernetes나 mesos/marathon 같은 방법이 생긴거죠.
+
+
+== Jenkins
+
+Jenkins는 시간이 지날 수록 성장하고 있고 계속해서 더 많이 쓰이고 있는 CI/CD 솔루션입니다.
+
+
+== Jenkins X
+
+Jenkins X 의 로고 이미지가 Jenkins 와 약간 다르죠? 먼가 차이가 느껴지시나요?
+
+Jenkins X는 Kubernetes 상에서의 CI/CD를 지원하는 오픈 소스 도구 입니다.
+
+회사고 주변에서 이제는 싹다 클라우드,클라우드하는데 어이쿠 저도 좀 알아야겠더라구요.
+저는 처음에 "Kubernetes?" "아 뭔가 어려워 보인다" "문서를 봐도 와닺지가 않았었습니다. 손에 잡히지가 않고 뭔지 잘 모르겠다 " 이런 느낌이었습니다.
+
+우리 JBUG에 기업 통합 패턴의 전문가 이신 차정호님으로 부터 Jenkins X를 알게되었습니다. 덕분에 뭔가 신세계가 열린 기분이었습니다.
+
+Jenkins X를 통해서 Kubernetes와도 친해지고 Kubernetes 상에서의 CI/CD에 대해서도 친해질 수 있습니다.
+말그대로 새로운 플랫폼의 시대에도 개발자들이 서비스 개발에만 집중 할 수 있도록 도와줄 것입니다.
+
+
+== Jenkins X - What we need to do
+
+Code change => Pull Request => Review
+
+=> Merge => Staging => Production
+
+제가 이제 Jenkins X 자체에 대해서 설명하기에 앞서서, 먼저 Jenkins X가 깔려 있으면 실제로 개발을 할 때 우리가 해야 할 것들에 대해서 먼저 정리를 하고 넘어가겠습니다.
+실제로 우리가 해야 할 일들은 기존 프로세스 그대로 입니다. 코드를 변경하고 Pull Request를 보내고 리뷰를 하고 머지를 하면 자동으로 Stage에 반영이 되고 최종적인 결정을 내리면 운영에 배포를 하고 하는 것입니다.
+
+
+== Transformation of Development Platform
+
+이제 앞으로 대부분의 개발 환경, 개발 플랫폼이 클라우드 기반으로 크게 변경될 것입니다. 이 변화는 지금까지와 차원이 다른 가장 큰 변화가 될 것입니다.
+그 변화는 이미 시작되었구요. 하나의 사례로 미국 법무부는 이미 클라우드 기반으로 전환을 했습니다. 미국 국방부도 대규모의 클라우드 전환 프로젝트를 준비 중에 있습니다.(RFP를 발송하였습니다.) 국내도 이미 진행 중인 사례가 있습니다.
+Red Hat은 Kubernetes를 랩핑한 OpenShift 라는 제품을 제공하고 있고 다른 벤더들도 유사한 방식으로 클라우드 플랫폼을 제공하고 있습니다. Kubernetes 는 산업상의 표준이라고 할 수 있습니다.
+현재 kubernetes 를 기반으로 하는 에코시스템을 구성하는 매우 다양한 기술들이 매우 빠르게 개발되고 있습니다. 
+이제는 Kubernetes 가 OS 같은 환경입니다. 
+기존에 베어메탈이나 VM 에서 컨테이너로 말아서 클라우드에 올리는 방식으로 변경되고
+컨터이너는 임뮤터블한 특징 때문에 기존과 다른 방식으로 다루게되고,
+몰노리틱 애플리케이션에서 더 작고 더 많은 애플리케이션, 즉 마이크로서비스로 운영이되고,
+이에 따라 개발 팀은 더욱 높은 생산성이 높은 CI/CD 수행이 요구됩니다.
+
+
+== What are the challenges?
+
+새로운 변화, 새로운 플랫폼은 우리에게 새로운 도전이 됩니다.
+어떻게하면 나의 애플리케이션을 클라우드로 마이그레이션 할 수 있을까?
+Kubernetes 상에서 어떻게 일해야 하는가?
+애플리케이션 개발 / 빌드 / 배포는 어떻게해야 할까?
+여러가지 복잡한 것들이 많은데 이것들을 어떻게 잘 구성해서 사용해야 하는걸까?
+내 애플리케이션 확인하는 방법, 로그를 보는 방법은 어떻게 하면 되는 건지...
+
+아마도 Jenkins X 가 시작하시는데도 도움이 될 수 있을 것 같습니다.
+
+
+== Started by James Strachan
+
+Jenkins X 하면 James Strachan을 빼놓고 얘기할 수가 없습니다.
+
+== Started by James Strachan
+
+자, 이 트윗은 올해 3월에 James Strachan이 올린 트잇입니다.
+스스로 Jenkins X를 만들고 스스로 자축을 하면서 올릿 트윗인데요.
+
+== Started by James Strachan
+
+Jenkins X 는 올해 3월에 James Strachan의해서 처음으로 릴리즈 되었습니다. 
+James Strachan이라는 분은 매우 휼륭하고 존경받는 현역 개발자 분이신데요, Groovy 언어를 만드신 분이시고 Apache ActiveMQ 와 Apache Camel을 만드신 분입니다.
+
+
+== Started by James Strachan
+
+사실 James Strachan은 2017 작년 말까지 Red Hat에 있었습니다.
+Red Hat에서 gofabric8 이라는 Jenkins X와 유사 프로젝트를 진행해왔습니다.
+James Strachan 과 그의 동료가 CloudBees로 옮기면서 gofabric8 프로젝트는 진행이 멈췄고, 사실상 James Strachan 팀이 회사를 옮긴 것입니다. 즉 이미 openshift 를 기반으로 CI/CD 솔루션을 만들던 경험으로 이직한지 단 3개월만에 새로운 오픈소스를 릴리즈 한 것 입니다. 
+현재 jenkins X는 정말 몇 시간마다 새로운 릴리즈가 출시되고 있고 Jenkins X의 커뮤니티는 상당히 활발한 상태입니다. 질문을 하면 James Strachan이 직접 답을 주시고 다른 분들도 열정적으로 답을 잘 주십니다. 저도 질문을 올리고 답변을 받고 있습니다.
+
+
+== Features of Jenkins X
+
+Jenkins x 가 제공하는 피쳐 측명서 간단하게 정리를 하면 이렇게 다음 4가지로 정리 할 수 있습니다. 
+
+자동화된 CI/CD 구성!
+git을 기반으로 자동화된 환경 관리!
+Preview 환경 제공!
+자동 코멘트 기능!
+
+
+첫번째 자동화된 CI/CD 구성이라함은,
+Jenkins Pipeline 같은 것을 우리가 잘 몰라고 쓸수 있게끔 자동으로 기본 세팅을 해준다는 의미입니다. 일단 자동 세팅이 되면 필요에 따라 커스터마이징해서 사용하면됩니다.
+
+git을 기반으로 자동화된 환경 관리의 의미는 각 개발/Staing/Production 같은 논리적인 환경 정의를 시스템적으로 관리해줍니다.
+여기서 GitOps 라는 것은 별거는 아니고 git을 기반으로 버전을 관리하고 Pull Request 방식으로 작업을하는 practice를 말합니다.
+
+Preview 환경 제공의 의미는 
+Pull Request 가 생성되면 자동으로 Preview 환경을 생성해줍니다. 이것은 PR 리뷰를 하는 사람에게 큰 도움이되는 기능입니다.
+
+자동 코멘트 기능은
+빌드가 완료되었거나 preview 환경이 준비가 완료되었을 때 이슈와 PR에 자동으로 feedback 코멘트가 달리는 기능어서, 이 역시 개발자들이 좀 더 손쉽게 상황을 파악하는데 도움을 주는 기능입니다. 
+
+제대로된 즉 진짜 개발에 도움이되는 CI/CD practice는 결국 도구+경험입니다. 진짜 개발을 해본 전문가가 도구도 만들어야 하고 경험도 제공해주어야 합니다. 그렇치 않은면 또 실수고 또 잠을 못 잡니다.
+제 생각에는 Jenkins X는 마치 컨설팅 서비스를 받아서 진짜 전문가가 와서 세팅해주듯이 Kubernetes 상에서의 CI/CD 환경을 세팅을 해주는 것과 같습니다. 우리는 더 빨리 배울 수 있고 더 빨리 개발에 집중할 수 있게됩니다.
+Jenkins X 덕분에 당장 Kubernetes 에서 뭔가 해볼 수 있게됩니다.
+
+
+
+== Supported Cloud Providers
+
+Jenkins X 가 지원하는 Kubernetes provider는
+
+* Google
+* OpenShift
+* Amazon
+* Azure
+* IBM
+* Oracle
+로컬에서 테스트해볼 수있는 minikube, minishift 가 있구요.
+
+즉 이게 무슨 뜻도 되냐하면, Jenkins X 를 쓰면 동일한 명령으로 각 cluster 로 context switching하면서 사용할 수 있게 됩니다.
+
+
+
+== How does Jenkins X help?
+처음에 Kubernetes cluster에 Jenkins X를 설치하면, Jenkins, Nexus, Helm, Tiller,  Chartmuseum, Monocular 등이 설치됩니다.
+Helm 은 yup이나 homebrew 같은 Kubernetes 에서 사용하는 Package manager 입니다.
+yum install 하듯이 helm install 하는 방식으로 Kubernetes에 애플리케이션을 배포할 수 있습니다.
+Chartmuseum 는 Helm Chart repository 입니다.
+
+== Helm Chart
+
+Helm Chart는 Kubernetes 애플리케이션의 패키징 포멧입니다.
+이 포멧에 맞춰서 의존성등을 정의하고 애플리케이션을 패키징해놓으면 Chartmuseum에 저장되어 있다가. helm install 명령으로 애플리케이션을 설치 할 수 있습니다.
+Monocular 는 app market처럼 설치가능한 helm chart를 검색할 수 있는 웹 UI 도구입니다.
+
+== Jenkins UI
+
+이 화면은 Jenkins UI 화면인데 Jenkins X가 자동으로 설치해준 것이고 container로 떠있는 것입니다.
+
+== Jenkins Blue Ocean UI
+
+This is new UI, Jenkins Blue Ocean.
+
+== Jenkins Blue Ocean UI
+
+This is Jenkins Pipeline UI.
+
+== Nexus UI
+
+And Nexus
+//This is Nexus UI on Kubernetes.
+
+== Monocular UI
+
+And Monocular UI
+//This is Monocular UI on Kubernetes.
+
+
+== How does Jenkins X help?
+
+After install Jenkins X, you can check it out.
+----
+jx open
+
+jenkins                   http://jenkins.jx.35.200.29.158.nip.io
+jenkins-x-chartmuseum     http://chartmuseum.jx.35.200.29.158.nip.io
+jenkins-x-docker-registry http://docker-registry.jx.35.200.29.158.nip.io
+jenkins-x-monocular-ui    http://monocular.jx.35.200.29.158.nip.io
+nexus                     http://nexus.jx.35.200.29.158.nip.io
+----
+
+== Import Maven Project
+
+== Dockerfile
+
+== Jenkinsfile
+
+== Built-in Packs
+
+== Built-in Packs
+
+== Environment Promotion via GitOps
+
+As I mentioned about Environment and Promotion.
+We can switch environment and promote application.
+
+
+
+== Environments in Kubernetes
+
+This diagram describes well about Jenkins X CI/CD practice flow.
+There are environments. And application from git repository and build and we can see preview at Pull Request, merge changes to master and promote to production.
+This is repeated continuously. It is CI/CD.
+
+== jx get environments
+
+== Demo & Environment Git Repository
+
+== jx get applications
+
+== jx get previews
+
+== Environments in Kubernetes
+
+== jx Overview
+
+You can understand the every flow of Jenkins X.
+
+
+== How do we setup Kubernetes + Jenkins X?
+
+You can install the jx command line tool on linux or mac.
+
+
+== How do we setup Kubernetes + Jenkins X?
+
+You can create Kubernetes cluster with Jenkins X using "jx create cluster" command.
+
+Or if you have a cluster already, you can install Jenkins X with the provider option.
+----
+jx install --provider=openshift
+----
+
+== Create Cluster GKE
+
+
+== Create Cluster GKE
+
+
+== VSCode Jenkins X Extension
+
+
+== Demo
+
+It is a demo from now on.
+I can do the jenkins x CI/CD practice now, but the Demo will take around 1~2 hours.
+So I’d like make the demo very simple and quick as possible as.
+This demo youtube video contains everything I’d like to show you on the jenkins X CI/CD practice.
+
+
+== Demo - Deploy Spring Boot app
+
+jx create cluster gke
+
+
+== Demo - Deploy Spring Boot app
+
+* Create Cluster GKE Record: 
+** https://asciinema.org/a/210859
+
+After install jx, you can create Kubernetes cluster with Jenkins X.
+After then, you can create sample hello world application and build it by Jenkins X and make some change. And promote to the production environment.
+
+I already recorded the Demo using asciinema.
+
+You can check this asciinema link: https://asciinema.org/a/209189
+You can test with minikube and it works. But I created Kubernetes cluster on Google  Container Engine with free credit.
+----
+jx create cluster gke --cluster-name jwon-k8s-cluster-1030 --username admin --default-admin-password admin123! --verbose=true --log-level debug
+----
+
+Installing jx
+Creating GKE kubernetes cluster
+Jenkins X is installing and assembling Jenkins, Nexus, Helm and Tiller, Chartmuseum, Monocular.
+
+// cluster 생성은 demo play 로 보여주고,
+// application 생성은 직접해보는게 좋을 것 같다.
+
+
+== Demo - Deploy Spring Boot app
+
+jx create spring -d web -d actuator
+
+jx provides sample application generator.
+Now creating spring boot application.
+----
+jx create spring -d web -d actuator
+----
+
+Jenkins X Automatically set up CI/CD pipelines for the new project.
+Setups up git repository
+Adds webhooks on git to trigger Jenkins pipelines on PR or master
+And Triggers the first pipeline
+
+
+== Demo - Deploy Spring Boot app
+
+//[%step]
+* Record: https://asciinema.org/a/210872
+* Automatically set up CI/CD pipelines for new + imported projects
+* Setups up git repository
+* Adds webhooks on git to trigger Jenkins pipelines on PR / master
+* Triggers the first pipeline
+
+
+== Demo - Jenkins X on Pull Request
+
+----
+jx create issue -t 'add a homepage'
+
+git checkout -b wip
+
+vi src/main/resources/static/index.html
+
+git add src
+
+git commit -a -m 'add a homepage fixes #1'
+
+git push origin wip
+
+jx create pullRequest -t "add a homepage fixes #1"
+----
+
+== Demo - Jenkins X on Pull Request
+
+//[%step]
+* Builds and tests
+* Creates preview docker image + helm chart
+* Creates a Preview Environment and comments on the PR with the link
+** https://github.com/tedwon/demo1030/pull/2
+
+image::pr-comment.png[]
+
+
+== Demo - Jenkins X promotion via GitOps
+
+jx promote --version 0.0.2 --env production
+
+
+== Demo - Jenkins X promotion via GitOps
+
+//[%step]
+* Each environment stores its configuration as helm charts in a git repository
+** Reuse the Pull Request workflow for changes
+* To promote a version to, say, Production Jenkins X submits a Pull Request
+** The Promote step waits for the Pull Request CI build to complete
+
+
+== Jenkins X Roadmap
+
+You can check the current status of Jenkins X on the roadmap page.
+https://jenkins-x.io/contribute/roadmap/
+
+
+== Jenkins X Slack
+
+
+[%notitle]
+//[background-color="white"]
+== Jenkins X Slack
+
+image::slack.png[canvas,size=contain]
+
+
+== Try it out!
+
+* https://jenkins-x.io/getting-started/
+* JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
+
+image::jbugkorea_logotype_600px.gif[width="700"]
+
+
+== Special Thanks to
+
+Jungho Cha <jcha@redhat.com>
+
+
+//[background-color="navy"]
+== Thank you
+
+image::jbugkorea_logotype_600px.gif[width="700"]
+
+https://www.facebook.com/groups/jbossusergroup/[facebook.com/groups/jbossusergroup/]
+
+
