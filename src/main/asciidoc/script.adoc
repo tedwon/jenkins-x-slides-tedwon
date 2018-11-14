@@ -174,26 +174,27 @@ Monocular 는 app market처럼 설치가능한 helm chart를 검색할 수 있�
 
 == Jenkins Blue Ocean UI
 
-This is new UI, Jenkins Blue Ocean.
+이 화면은 참고로 Jenkins Blue Ocean 이라는 새로운 Jenkins UI 인데요, 
 
 == Jenkins Blue Ocean UI
 
-This is Jenkins Pipeline UI.
+Jenkins Pipleline 을 실시간 보기 형태로 볼 수 있는 개선된 UI 입니다.
 
 == Nexus UI
 
-And Nexus
-//This is Nexus UI on Kubernetes.
+이 화면은 Nexus UI 입니다. 
 
 == Monocular UI
 
-And Monocular UI
-//This is Monocular UI on Kubernetes.
+그리고 이 화면은 Monocular UI 입니다.
 
 
 == How does Jenkins X help?
 
-After install Jenkins X, you can check it out.
+Jenkins X 는 사실상 jx라는 코멘드 라인 도구라고 보시면 됩니다.
+Jenkins X를 설치하면 앞서 말씀드린 여러가지 도구들이 자동으로 설치가되고 container로 실행이되는데요,
+터미널에서 jx open 이라고 치면 이렇게 접근 가능한 도구와 URL을 확인 할 수 있습니다.
+
 ----
 jx open
 
