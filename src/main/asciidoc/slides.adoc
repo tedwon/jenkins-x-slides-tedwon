@@ -65,7 +65,7 @@ Code change => Pull Request => Review
 => Merge => Staging => Production
 
 
-== Transformation of Development Platform
+== What are the changes?
 
 //[%step]
 * Move from on premise to cloud
