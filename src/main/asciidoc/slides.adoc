@@ -461,6 +461,10 @@ image::vscode.png[canvas,size=contain]
 
 == Demo
 
+* Creating GKE Kubernetes cluster with Jenkins X
+* Creating Spring Boot app
+* Creating code change
+* Promoting to Production
 
 [%notitle,background-iframe="https://www.youtube.com/embed/kPes3rvT1UM"]
 == Demo Video: jx create spring 
@@ -490,6 +494,13 @@ jx create spring -d web -d actuator
 * Setups up git repository
 * Adds webhooks on git to trigger Jenkins pipelines on PR / master
 * Triggers the first pipeline
+
+
+== Jenkins X - What we need to do
+
+Code change => Pull Request => Review
+
+=> Merge => Staging => Production
 
 
 == Demo - Jenkins X on Pull Request
