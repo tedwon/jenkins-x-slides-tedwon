@@ -1,5 +1,13 @@
 :toc:
 
+== jx create pullrequest -t "#3 update slides 20181115" --body "https://github.com/tedwon/jx-slides/issues/3"
+
+----
+~/jx/jx-slides(wip-3) » jx create pullrequest -t "#3 update slides 20181115" --body "https://github.com/tedwon/jx-slides/issues/3"
+? Do you wish to use tedwon as the user name to use for authenticating with git issues Yes
+
+Created PullRequest #4 at https://github.com/tedwon/jx-slides/pull/4
+----
 
 == jx get preview
 

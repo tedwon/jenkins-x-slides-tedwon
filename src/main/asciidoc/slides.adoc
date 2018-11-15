@@ -519,6 +519,8 @@ git commit -a -m 'add a homepage fixes #1'
 git push origin wip
 
 jx create pullrequest -t "add a homepage fixes #1"
+
+jx get preview
 ----
 
 == Demo - Jenkins X on Pull Request
