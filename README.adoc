@@ -1,10 +1,13 @@
 == Introduction to Jenkins X
 
+https://jenkins-x.io/
+
 _앞으로 성큼 다가올 cloud native application 개발 시대로의 전환을 맞아 산업상의 표준으로 자리잡고 있는 클라우드 플랫폼 Kubernetes 상에서의 개발자를 돕는 CI/CD best practice 를 알아보자._
 
 _Let's have a look at CI/CD best practices to help developers on the cloud platform Kubernetes, which is becoming an industry standard, as we move to the era of cloud native application development, which is about to come._
 
 * Check it out link:src/main/asciidoc/slides.adoc[slides.adoc]
+
 
 === Demo
 
@@ -31,3 +34,8 @@ asciinema play -i 1 -s 5 209189.cast
 ----
 slides.html?print-pdf
 ----
+
+=== GongGam Seminar 17th, 2108
+
+
+image::gonggam_seminar_17th.jpg[GongGam Seminar 17th, 2108]
