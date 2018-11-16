@@ -317,9 +317,8 @@ Production에 promotion 해보는 과정입니다.
 그런데 시간이 꽤 걸리는 작업이라서 모두 다 완전히 못 할 수도 있을 것 같고요.
 최대한 한 번 진행해보겠습니다.
 
-== 동영상
-
-사실 이 동영상에 모든 과정이 다 들어있습니다. 나중에 참고해보시고요.
+//== 동영상
+//사실 이 동영상에 모든 과정이 다 들어있습니다. 나중에 참고해보시고요.
 
 == Demo - Deploy Spring Boot app
 
@@ -419,23 +418,6 @@ jx promote 에 버전을 명시하고 명령을 내리면 해당 버전이 produ
 jx promote --version 0.0.2 --env production
 
 
-== Demo - Jenkins X promotion via GitOps
-
-//[%step]
-* Each environment stores its configuration as helm charts in a git repository
-** Reuse the Pull Request workflow for changes
-* To promote a version to, say, Production Jenkins X submits a Pull Request
-** The Promote step waits for the Pull Request CI build to complete
-
-
-== Jenkins X Roadmap
-
-여기 Roadmap 페이지에서 Jenkins X 에 현재 상태와 지원 범위를 확인해볼 수 있습니다.
-
-You can check the current status of Jenkins X on the roadmap page.
-https://jenkins-x.io/contribute/roadmap/
-
-
 == Jenkins X Slack
 
 각종 궁금한 사항은 Jenkins X 커뮤니티 Slack에서 바로 물어보고 바로 답변을 받을 수 있습니다.
@@ -464,3 +446,14 @@ Jungho Cha <jcha@redhat.com>
 == Thank you
 
 감사합니다.
+
+
+
+
+
+== Jenkins X Roadmap
+
+여기 Roadmap 페이지에서 Jenkins X 에 현재 상태와 지원 범위를 확인해볼 수 있습니다.
+
+You can check the current status of Jenkins X on the roadmap page.
+https://jenkins-x.io/contribute/roadmap/

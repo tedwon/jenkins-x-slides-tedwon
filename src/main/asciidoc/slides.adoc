@@ -487,8 +487,8 @@ image::vscode.png[canvas,size=contain]
 * Creating code change
 * Promoting to Production
 
-[%notitle,background-iframe="https://www.youtube.com/embed/kPes3rvT1UM"]
-== Demo Video: jx create spring 
+//[%notitle,background-iframe="https://www.youtube.com/embed/kPes3rvT1UM"]
+//== Demo Video: jx create spring 
 
 
 == Demo - Deploy Spring Boot app
@@ -517,13 +517,6 @@ jx create spring -d web -d actuator
 * Triggers the first pipeline
 
 
-== Jenkins X - What we need to do
-
-Code change => Pull Request => Review
-
-=> Merge => Staging => Production
-
-
 == Demo - Jenkins X on Pull Request
 
 ----
@@ -547,7 +540,7 @@ jx get preview
 == Demo - Jenkins X on Pull Request
 
 //[%step]
-* Builds and tests
+//* Builds and tests
 * Creates preview docker image + helm chart
 * Creates a Preview Environment and comments on the PR with the link
 ** https://github.com/tedwon/demo1030/pull/2
@@ -558,20 +551,6 @@ image::pr-comment.png[]
 == Demo - Jenkins X promotion via GitOps
 
 jx promote --version 0.0.2 --env production
-
-
-== Demo - Jenkins X promotion via GitOps
-
-//[%step]
-* Each environment stores its configuration as helm charts in a git repository
-** Reuse the Pull Request workflow for changes
-* To promote a version to, say, Production Jenkins X submits a Pull Request
-** The Promote step waits for the Pull Request CI build to complete
-
-
-== Jenkins X Roadmap
-
-https://jenkins-x.io/contribute/roadmap/
 
 
 == Jenkins X Slack
@@ -592,9 +571,9 @@ image::slack.png[canvas,size=contain]
 image::jbugkorea_logotype_600px.gif[width="700"]
 
 
-== Special Thanks to
+//== Special Thanks to
 
-Jungho Cha <jcha@redhat.com>
+//Jungho Cha <jcha@redhat.com>
 
 
 //[background-color="navy"]
@@ -631,3 +610,4 @@ https://www.facebook.com/groups/jbossusergroup/[facebook.com/groups/jbossusergro
 * https://jenkins-x.io/developing/git/#using-a-different-git-provider-for-environments
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
 * https://github.com/tedwon/jenkins-x-slides-tedwon
+* https://jenkins-x.io/contribute/roadmap/
