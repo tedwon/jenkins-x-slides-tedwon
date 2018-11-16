@@ -43,10 +43,12 @@ image::ollehtv.png[]
 [background-color="red"]
 == I am a Red Hat JBoss Senior SME at Seoul
 
+Software Maintenance Engineer
+
 
 //[transition-speed=fast]
-[background-color="red"]
-== Software Maintenance Engineer
+//[background-color="red"]
+//== Software Maintenance Engineer
 
 
 == Jenkins vs Jenkis X
