@@ -6,7 +6,7 @@ automated CI/CD solution for cloud native applications on Kubernetes
 
 https://jenkins-x.io/
 
-tedwon <jwon@redhat.com>
+@tedwon
 
 //image::jbugkorea_logotype_600px.gif[background, size=cover]
 
@@ -53,6 +53,7 @@ Software Maintenance Engineer
 
 == Jenkins vs Jenkis X
 
+
 == Jenkins
 
 //[%step]
@@ -78,14 +79,14 @@ image::jenkins-install.png[canvas,size=contain]
 image::jenkinsx.png[width="300"]
 
 
-== Jenkins X - What we need to do
+== Jenkins X - What we do
 
 Code change => Pull Request => Review
 
 => Merge => Staging => Production
 
 
-== What are the changes?
+== What are the new changes?
 
 //[%step]
 * Move from on premise to cloud
@@ -96,7 +97,7 @@ Code change => Pull Request => Review
 * Become high performing teams via CI/CD
 
 
-== What are the challenges?
+== What are the new challenges?
 
 //[%step]
 * How do I migrate my applications to the cloud?
