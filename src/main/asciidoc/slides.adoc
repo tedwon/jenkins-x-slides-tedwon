@@ -506,6 +506,10 @@ jx create cluster gke
 * Create Cluster GKE Record: 
 ** https://asciinema.org/a/210859
 
+----
+asciinema play -i 1 -s 5 Creating_GKE_Kubernetes_cluster_with_Jenkins_X_at_20181109.cast
+----
+
 
 == Demo - Deploy Spring Boot app
 
@@ -513,6 +517,10 @@ jx create spring -d web -d actuator
 
 
 == Demo - Deploy Spring Boot app
+
+----
+asciinema play -i 1 -s 5 Creating_Spring_Boot_Application_on_GKE_Kubernetes_cluster_with_Jenkins_X_at_20181109.cast
+----
 
 [%step]
 * Record: https://asciinema.org/a/210872
@@ -560,6 +568,10 @@ jx promote --version 0.0.2 --env production
 
 == Jenkins X Slack
 
+https://kubernetes.slack.com[kubernetes.slack.com]
+
+#jenkins-x-user
+
 
 [%notitle]
 //[background-color="white"]
@@ -589,7 +601,7 @@ image::jbugkorea_logotype_600px.gif[width="700"]
 https://www.facebook.com/groups/jbossusergroup/[facebook.com/groups/jbossusergroup/]
 
 
-== References
+== Sources & References
 
 * https://docs.google.com/presentation/d/1hwt2lFh3cCeFdP4xoT_stMPs0nh2xVZUtze6o79WfXc/edit#slide=id.p
 * https://developer.okta.com/blog/2018/07/11/ci-cd-spring-boot-jenkins-x-kubernetes
@@ -598,7 +610,7 @@ https://www.facebook.com/groups/jbossusergroup/[facebook.com/groups/jbossusergro
 * https://jenkins.io/blog/2018/07/19/jenkins-x-accelerate/
 
 
-== References
+== Sources & References
 
 * https://dzone.com/articles/jenkins-x-the-good-bad-and-ugly
 * https://blog.octo.com/en/jenkinsx-new-kubernetes-dream-part-1/
@@ -608,7 +620,7 @@ https://www.facebook.com/groups/jbossusergroup/[facebook.com/groups/jbossusergro
 
 
 
-== References
+== Sources & References
 
 * http://woowabros.github.io/experience/2018/06/26/bros-cicd.html
 * https://dzone.com/articles/what-is-gitops-really
