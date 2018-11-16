@@ -454,7 +454,6 @@ James Strachan님이 영국에 계셔서 우리나라 시간으로 오후 4시�
 * https://jenkins-x.io/getting-started/
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
 
-
 == Special Thanks to
 
 Jenkins X를 소개해주신 분이 우리 JBUG에 차정호님이십니다. 항상 많이 배우고 있고 이자리를 빌어서 다시 한 번 감사드립니다.

@@ -21,12 +21,30 @@ ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
 
-[transition=zoom, %notitle]
+//[%notitle]
+[transition=zoom]
+[background-color="red"]
+== Hello! I am
+
+//image::daum.jpeg[canvas,size=contain]
+image::daum.jpeg[]
+
+
+//[%notitle]
+//[transition=zoom]
+[background-color="red"]
+== Hello! I am
+
+//image::ollehtv.png[canvas,size=contain]
+image::ollehtv.png[]
+
+
+[transition=zoom]
 [background-color="red"]
 == I am a Red Hat JBoss Senior SME at Seoul
 
 
-[transition-speed=fast, %notitle]
+//[transition-speed=fast]
 [background-color="red"]
 == Software Maintenance Engineer
 
@@ -147,7 +165,7 @@ image::twitter.png[canvas,size=contain]
 
 //[%step]
 * Google Container Engine
-* OpenShift
+* Red Hat OpenShift
 * Amazon Elastic Container Service
 * Azure Container Service
 * IBM Cloud Kubernetes Service
@@ -609,3 +627,4 @@ https://www.facebook.com/groups/jbossusergroup/[facebook.com/groups/jbossusergro
 * https://dzone.com/articles/what-is-gitops-really
 * https://jenkins-x.io/developing/git/#using-a-different-git-provider-for-environments
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
+* https://github.com/tedwon/jenkins-x-slides-tedwon
