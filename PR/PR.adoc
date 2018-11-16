@@ -1,0 +1,191 @@
+* https://jenkins-x.io/contribute/development/
+
+* https://github.com/jenkins-x/jx/issues/new
+
+----
+git remote add upstream https://github.com/jenkins-x/jx.git
+git remote -v
+git fetch upstream
+git checkout master
+git merge upstream/master
+git checkout -b fix-jx-create-pullrequest-typo
+git commit -a -m "fix: typo "Examples: jx create pullRequest" at "jx create pullrequest --help" command
+https://github.com/jenkins-x/jx/issues/2261"
+----
+
+----
+… --help" command
+
+#### Submitter checklist
+
+- [ ] Change is code complete and matches issue description.
+- [ ] Change is covered by existing or new tests.
+
+#### Description
+
+There is a typo at "jx create pullrequest --help" command's output.
+
+"pullRequest" should be fixed as "pullrequest" in Examples.
+
+```
+jx create pullrequest --help
+Creates a Pull Request in a the git project of the current directory
+
+Aliases:
+pullrequest, pr, pull request
+Examples:
+  # Create a Pull Request in the current project
+  jx create pullRequest -t "my PR title"
+
+
+  # Create a Pull Request with a title and a body
+  jx create pullRequest -t "my PR title" --body "
+  some more
+  text
+  goes
+  here
+  ""
+  "
+Options:
+      --base='master': The base branch to create the pull request into
+  -b, --batch-mode=false: In batch mode the command never prompts for user input
+      --body='': The body of the pullRequest
+      --dir='': The source directory used to detect the Git repository. Defaults to the current directory
+      --headless=false: Enable headless operation if using browser automation
+      --install-dependencies=false: Should any required dependencies be installed automatically
+  -l, --label=[]: The labels to add to the pullRequest
+      --log-level='info': Logging level. Possible values - panic, fatal, error, warning, info, debug.
+      --no-brew=false: Disables the use of brew on macOS to install or upgrade command line dependencies
+      --pull-secrets='': The pull secrets the service account created should have (useful when deploying to your own private registry): provide multiple pull secrets by providing them in a singular block of quotes e.g. --pull-secrets "foo, bar, baz"
+      --skip-auth-secrets-merge=false: Skips merging a local git auth yaml file with any pipeline secrets that are found
+  -t, --title='': The title of the pullRequest to create
+      --verbose=false: Enable verbose logging
+Usage:
+  jx create pullrequest [flags] [options]
+Use "jx options" for a list of global command-line options (applies to all commands).
+```
+
+#### Special notes for the reviewer(s)
+
+
+#### Which issue this PR fixes
+
+fixes #2261
+
+-----
+
+
+Fix the typo "Examples: jx create pullRequest" at "jx create pullrequest --help" command 
+
+### Summary 
+
+There is a typo at "jx create pullrequest --help" command's output.
+
+### Steps to reproduce the behavior
+
+Run "jx create pullrequest --help" command
+
+### Jx version
+
+The output of `jx version` is:
+
+```
+NAME               VERSION
+jx                 1.3.565
+jenkins x platform 0.0.2871
+Kubernetes cluster v1.9.7-gke.11
+kubectl            v1.12.2
+helm client        v2.11.0+g2e55dbe
+helm server        v2.11.0+g2e55dbe
+git                git version 2.15.1
+```
+
+### Kubernetes cluster
+
+What kind of Kubernetes cluster are you using & how did you create it?
+
+all
+
+### Operating system / Environment
+
+all
+
+### Expected behavior
+
+```
+jx create pullrequest --help
+Creates a Pull Request in a the git project of the current directory
+
+Aliases:
+pullrequest, pr, pull request
+Examples:
+  # Create a Pull Request in the current project
+  jx create pullrequest -t "my PR title"
+
+
+  # Create a Pull Request with a title and a body
+  jx create pullrequest -t "my PR title" --body "
+  some more
+  text
+  goes
+  here
+  ""
+  "
+Options:
+      --base='master': The base branch to create the pull request into
+  -b, --batch-mode=false: In batch mode the command never prompts for user input
+      --body='': The body of the pullrequest
+      --dir='': The source directory used to detect the Git repository. Defaults to the current directory
+      --headless=false: Enable headless operation if using browser automation
+      --install-dependencies=false: Should any required dependencies be installed automatically
+  -l, --label=[]: The labels to add to the pullrequest
+      --log-level='info': Logging level. Possible values - panic, fatal, error, warning, info, debug.
+      --no-brew=false: Disables the use of brew on macOS to install or upgrade command line dependencies
+      --pull-secrets='': The pull secrets the service account created should have (useful when deploying to your own private registry): provide multiple pull secrets by providing them in a singular block of quotes e.g. --pull-secrets "foo, bar, baz"
+      --skip-auth-secrets-merge=false: Skips merging a local git auth yaml file with any pipeline secrets that are found
+  -t, --title='': The title of the pullrequest to create
+      --verbose=false: Enable verbose logging
+Usage:
+  jx create pullrequest [flags] [options]
+Use "jx options" for a list of global command-line options (applies to all commands).
+```
+
+### Actual behavior
+
+```
+jx create pullrequest --help
+Creates a Pull Request in a the git project of the current directory
+
+Aliases:
+pullrequest, pr, pull request
+Examples:
+  # Create a Pull Request in the current project
+  jx create pullRequest -t "my PR title"
+
+
+  # Create a Pull Request with a title and a body
+  jx create pullRequest -t "my PR title" --body "
+  some more
+  text
+  goes
+  here
+  ""
+  "
+Options:
+      --base='master': The base branch to create the pull request into
+  -b, --batch-mode=false: In batch mode the command never prompts for user input
+      --body='': The body of the pullRequest
+      --dir='': The source directory used to detect the Git repository. Defaults to the current directory
+      --headless=false: Enable headless operation if using browser automation
+      --install-dependencies=false: Should any required dependencies be installed automatically
+  -l, --label=[]: The labels to add to the pullRequest
+      --log-level='info': Logging level. Possible values - panic, fatal, error, warning, info, debug.
+      --no-brew=false: Disables the use of brew on macOS to install or upgrade command line dependencies
+      --pull-secrets='': The pull secrets the service account created should have (useful when deploying to your own private registry): provide multiple pull secrets by providing them in a singular block of quotes e.g. --pull-secrets "foo, bar, baz"
+      --skip-auth-secrets-merge=false: Skips merging a local git auth yaml file with any pipeline secrets that are found
+  -t, --title='': The title of the pullRequest to create
+      --verbose=false: Enable verbose logging
+Usage:
+  jx create pullrequest [flags] [options]
+Use "jx options" for a list of global command-line options (applies to all commands).
+```
