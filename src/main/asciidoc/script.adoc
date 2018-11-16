@@ -8,8 +8,8 @@ http://jx-slides.jx-production.35.243.86.163.nip.io/slides.html
 
 == Title
 
-안녕하세요, 원종석 이라고 합니다.
-이번 시간에는 Jenkins X 라는 오픈소스를 소개해드리고 싶습니다.
+안녕하세요~, 원종석 입니다.
+제가 이번 시간에는 Jenkins X 라는 오픈소스를 소개해드리려고 합니다.
 
 Jenkins X의 용도는 Kubernetes 상에서의 CI/CD practice를 도와주는 CI/CD 도구이자 솔루션이라고 할 수 있는데요.
 만약에 아직 Kubernetes에 경험이 없으시거나 하지만 Kubernetes에 관심이 있으신 분들에게 도움이 되것 같습니다.
@@ -66,9 +66,9 @@ Jenkins X 에 대해서 자세하게 설명을 드리고 싶은데 장황하게 
 
 == What are the changes?
 
-이제 앞으로 대부분의 개발 환경, 개발 플랫폼이 클라우드 기반으로 크게 변경될 것입니다. 
-이 미래는 생각보다 빨리 우리한테 올 것 같고요, 
-이 변화는 지금까지와 차원이 다른 가장 큰 변화가 될 것 같습니다.
+이제 앞으로 대부분의 개발 환경, 개발 플랫폼, 운영 플랫폼이 클라우드 기반으로 크게 변경될 것입니다. 
+이 미래는 생각보다 빨리 올 것 같고요, 
+이 변화는 지금까지와는 차원이 다른 가장 큰 변화가 될 것 같습니다.
 그 변화는 사실 이미 시작되었구요. 하나의 사례로 미국 법무부가 이미 클라우드 기반으로 전환을 했습니다. 
 미국 국방부도 클라우드로 전환하기위해서 대규모의 프로젝트를 준비 중에 있습니다.(RFP를 발송하였습니다.) 
 국내에서도 진행 중인 사례가 있습니다.
@@ -100,21 +100,21 @@ Jenkins X 하면 James Strachan을 빼놓고 얘기할 수가 없구요.
 
 == Started by James Strachan
 
-자, 이 트윗은 올해 3월에 James Strachan님이 올린 트잇인데요.
-스스로 Jenkins X를 만들시고 스스로 자축을 하면서 올릿 트윗입니다.
+이 트윗은 올해 3월에 James Strachan님이 올린 트잇인데요.
+스스로 Jenkins X를 만들고 스스로 자축을 하면서 올릿 트윗입니다.
 
 == Started by James Strachan
 
-Jenkins X 는 올해 3월에 James Strachan의해서 처음으로 릴리즈 되었습니다. 
-James Strachan이라는 분은 매우 휼륭하고 존경받는 현역 개발자 분이십니다., Groovy 언어를 만드신 분이시고 Apache ActiveMQ 와 Apache Camel을 만드신 분이시구요.
-Scala라는 프로그래밍 언어 엄청 뜰 때 자신 만든 Groovy 언어보다 Scala가 더 좋다고 하시 일화가 유명한데요. 권위의식이 없으시고 지금도 새로운 것을 계속해서 만들어가시는 훌륭한 분이십니다.
+Jenkins X 는 올해 3월에 처음으로 릴리즈 되었습니다. 
+James Strachan이라는 분은 매우 휼륭하고 존경받는 현역 개발자 분이십니다. Groovy 언어를 만드신 분이시고 Apache ActiveMQ 와 Apache Camel을 만드신 분이시구요.
+Scala라는 프로그래밍 언어 엄청 뜰 때 자신 만든 Groovy 언어보다 Scala가 더 뛰어나다고 하셨던 일화가 유명한데요. 그만큼 권위의식이 없으시고 지금도 새로운 것을 계속해서 만들어가시는 훌륭한 분이십니다.
 
 
 == Started by James Strachan
 
 사실 James Strachan은 2017 작년 말까지 Red Hat에 계셨구요.
-Red Hat에서 gofabric8 라는 Jenkins X 하고 유사 프로젝트를 진행해왔습니다. 사실 모태가된 프로젝트 입니다.
-사실 James Strachan 팀이 회사를 옮긴 것이구요. 이미 openshift 를 기반으로 CI/CD 솔루션을 만들던 경험을 가지고 이직한지 단 3개월만에 새로운 오픈소스를 릴리즈 한 것 입니다. 
+Red Hat에서 gofabric8 라는 Jenkins X 하고 매우 유사 프로젝트를 진행해왔습니다. 사실 모태가된 프로젝트이구요.
+사실 James Strachan 팀이 회사를 옮긴 것이구요. 이미 openshift 를 기반으로 CI/CD 솔루션을 만들던 경험이 있기 때문에 이직한지 단 3개월만에 새로운 오픈소스를 릴리즈 한 것 입니다. 
 현재 jenkins X는 몇 시간마다 새로운 릴리즈가 출시되고 있구요,
 Jenkins X의 커뮤니티는 상당히 활발한 상태입니다. 
 질문을 하면 James Strachan님이 직접 답을 주시고 다른 분들도 열정적으로 답을 잘 주십니다. 
@@ -131,7 +131,7 @@ Jenkins x 가 제공하는 피쳐는 간단하게 다음 4가지로 정리 할 �
 //자동 코멘트 기능!
 
 
-첫번째, 자동화된 CI/CD 라함은,
+첫번째, 자동화된 CI/CD, 이뜻은,
 Jenkins Pipeline 같은 것을 우리가 잘 몰라도 쓸 수 있게끔 자동으로 기본 세팅을 해준다는 의미입니다. 일단 자동 세팅이 되면 우리에 필요에 따라서 커스터마이징해서 사용하면됩니다.
 
 두번째는, git을 기반으로 자동화된 환경 관리를 해주는데요.
@@ -139,16 +139,16 @@ Jenkins Pipeline 같은 것을 우리가 잘 몰라도 쓸 수 있게끔 자동�
 여기서 GitOps 라는 것은 별거는 아니고 git을 기반으로 버전을 관리하면서 Pull Request 방식으로 작업을하는 git을 기반으로 개발을하는 practice를 말합니다.
 
 세번째, Preview 환경 제공의 의미는 
-코드 변경에 따른 Pull Request 가 생성되면 자동으로 Preview 환경을 생성해줍니다. 이것은 Pull Request를 리뷰하는 사람에게 큰 도움이되는 기능입니다.
+코드 변경에 따른 Pull Request 가 생성되면 자동으로 Preview 환경을 생성해줍니다. 이것은 Pull Request를 리뷰하는 리뷰어에게 큰 도움이되는 기능입니다.
 
 네번째, 자동 코멘트 기능이 있는데요,
 빌드가 완료되었거나 preview 환경이 준비가 완료됐을 때 이슈나 Pull Request에 자동으로 feedback 코멘트가 달리는 기능입니다, 
 이 역시 개발자들이 좀 더 손쉽게 상황을 파악하는데 도움을 주는 기능입니다. 
 
 제대로된 즉 진짜 개발에 도움이되는 CI/CD는 결국 도구+경험인데요. 진짜 개발을 해본 전문가가 도구도 만들어야 하고 경험도 제공해주어야 합니다. 커스터마이징이 가능해야 합니다. 
-그렇치 않은면 또 우리는 실수를 하고 당황하고 얼굴 빨게지고 밤에 잠 못 자고 고생합니다.
-제 생각에는 Jenkins X가 마치 전문가가와서 Kubernetes상에서 CI/CD 이렇게 써라하고 세팅해주고 컨설팅 해주는 것과 같은 느낌입니다.
-우리는 더 빨리 배울 수 있고 더 빨리 개발에 집중할 수 있게됩니다.
+그렇치 않으면 또 우리의 현실은 우울합니다. Agile에 Sprint에 더 빨리 더 높이, 결국에는 실수를 하고 당황하고 얼굴 빨게지고 밤에 잠 못 자고 고생합니다.
+제 생각에는 Jenkins X가 마치 전문가가와서 Kubernetes상에서 CI/CD는 이렇게 써라하고 세팅해주고 컨설팅 해주는 것과 같은 느낌이라고 할 수 있습니다.
+그래서 우리는 더 빨리 배울 수 있고 더 빨리 개발에 집중할 수 있게됩니다.
 Jenkins X 덕분에 당장 Kubernetes 에서 뭔가 해볼 수 있게됩니다.
 
 
@@ -165,7 +165,7 @@ Jenkins X 가 지원하는 Kubernetes provider는
 * Oracle 등이 있구요,
 로컬에서 테스트해볼 수있는 환경도 지원합니다.
 
-이게 또 무슨 의미냐하면, Jenkins X 를 쓰면 동일한 명령으로 각 cluster 로 context switching하면서 사용할 수 있게 됩니다.
+이게 또 무슨 의미냐하면, Jenkins X 를 쓰면 동일한 명령으로 각각의 cluster 로 context switching하면서 멀티 클러스터를 사용할 수 있게 된다는 의미입니다.
 
 
 
@@ -179,7 +179,7 @@ Chartmuseum 은 Helm Chart 저장소입니다.
 == Helm Chart
 
 Helm Chart는 Kubernetes 애플리케이션의 패키징 포멧입니다.
-이 포멧에 맞춰서 의존성을 정의하고 애플리케이션을 패키징해놓으면 Chartmuseum에 저장되어 있다가. helm install 명령으로 애플리케이션을 설치 할 수 있습니다.
+이 포멧에 맞춰서 의존성을 정의하고 애플리케이션을 패키징해놓으면 Chartmuseum에 저장되어 있다가. helm install 명령으로 애플리케이션을 Kubernetes에 설치 할 수 있습니다.
 Monocular 는 app market처럼 설치가능한 helm chart를 검색할 수 있는 웹 UI 도구입니다.
 
 == Jenkins UI
@@ -207,7 +207,7 @@ Jenkins Blue Ocean에서는 Jenkins Pipleline 실행을 실시간 형태로 볼 
 
 Jenkins X 는 사실상 "jx"라는 코멘드 라인 도구라고 보시면 되구요.
 Jenkins X를 설치하면 앞서 말씀드린 여러가지 도구들이 자동으로 설치되고 container로 실행이됩니다.
-터미널에서 jx open 이렇게 치시면 CI/CD 도구들과 URL을 확인 할 수 있습니다.
+터미널에서 jx open 이렇게 명령을 치시면 CI/CD 도구들과 URL을 확인 할 수 있습니다.
 
 ----
 jx open
@@ -221,7 +221,7 @@ nexus                     http://nexus.jx.35.200.29.158.nip.io
 
 == Import Maven Project
 
-하나의 예로 Java Maven Project를 보면요, 원래있는 pom.xml 파일 src 디렉토리외로 뭔가 추가로 Jenkins X가 자동으로 추가해주는 부분이 있습니다.
+하나의 애플리케이션 예로 Java Maven Project를 보면요, 원래있는 pom.xml 파일 src 디렉토리외로 뭔가 추가로 Jenkins X가 자동으로 추가해주는 부분이 있습니다.
 
 == Dockerfile
 
@@ -237,12 +237,13 @@ Java Project에 맞는 기본적인 Dockerfile을 정의해줍니다.
 
 == Built-in Packs
 
-보시면 golang이라던지 php, python 이런 것들도 있는게 보입니다.
+보시면 이 빌트인 팩에는 랭기쥐별로 준비가 되어 있습니다. golang이라던지 php, python 이런 것들도 보이구요.
 
 
 == Environment Promotion via GitOps
 
 터미털에서 "jx env" 하고 명령을 치시면 현재 환경 정의된 것을 확인할 수 있구요, 다른 환경으로 스위칭할 수 있습니다.
+기본적으로 dev, staging, production 이 세팅이 되고, 커스텀 추가하거 삭제할 수 있습니다.
 
 == jx get environments
 
@@ -256,49 +257,50 @@ Production은 수동으로 promotion 하게되어 있는 것을 볼 수 있습�
 
 == jx get applications
 
-jx get apps는 배포된 애플리케이션을 확인 할 수 있습니다.
+jx get apps는 배포된 애플리케이션을 확인 할 수 있습니다. 버전, 현재 stage를 확인할 수 있습니다.
 
 
 == jx get previews
 
-jx get preview는 PP review 애플리케이션의 URL을 확인 할 수 있습니다.
+jx get preview 명령으로 Pull Request에 대한 preview 애플리케이션의 리스트와 URL을 확인 할 수 있습니다.
 
 == Environments in Kubernetes
 
 이 다이어그램을 보시면 Kubernetes 상에 namespace 로 environment 가 정의되어 있구요.
-code change에 의해서 preview가 제공되고 upstream master에 merge가 되면 Jenkins로 빌드가 되고 staging에 배포가됩니다. Production에 반영할 때는 jx promote 명령으로 배포합니다.
+code change에 의해서 preview가 제공되고 upstream master에 merge가 되면 Jenkins로 빌드가 되고 staging에 배포를 합니다. 그리고 Production에 반영할 때는 jx promote 하면 production에 이관이됩니다.
 
 
 == jx Overview
 
 이 그림은 전체 흐름을 다 설명해주고 있습니다.
-프로젝트에 Pull Request가 생성되면 빌드하고 패키징해서 Preview 애플리케이션을 배포하고 upstream에 merge가되면 Staging에 자동으로 배포가되고 담당자가 최종 결정을 내리면 jx promote prod 명령으로 운영에 배포합니다.
+프로젝트에 Pull Request가 생성되면 빌드하고 패키징해서 Preview 애플리케이션을 배포하고 upstream에 merge가되면 Staging에 자동으로 배포가되고 담당자가 최종 결정을 내리면 사람이 수동으로 jx promote 명령을 내려서 운영에 배포합니다.
 
 
 == How do we setup Kubernetes + Jenkins X?
 
-Mac 에서는 homebrew로 jx command 를 설치하면 됩니다.
+Mac 에서는 homebrew로 아주 간편하게 jx command 를 설치할 수 있습니다.
 
 
 == How do we setup Kubernetes + Jenkins X?
 
-GKE 처럼 퍼블릭 클라우드 환경이라면 jx create cluster 로 Kubernetes cluster 생성 및 Jenkins X 설치를 한 번에 할 수 있습니다.
+구글 클라우드 GKE 처럼 퍼블릭 클라우드 환경이라면 jx create cluster 로 명령을 내려서 Kubernetes cluster를 생성하고 Jenkins X 설치를 한 번에 다같이 생성 할 수 있습니다.
 
 == How do we setup Kubernetes + Jenkins X?
 
-만약 이미 Kubernetes cluster 가 있다면 jx install --provider 명령으로 Jenkins X만 설치하면 됩니다.
+만약 이미 Kubernetes cluster 가 있다면 jx install --provider 명령으로 Jenkins X를 설치하면 됩니다.
 
 == Create Cluster GKE
 
-우선 Quick Start로 가장 추천하는 방법은 gmail 계정을 가지고 계시면 Google Container Engine 을 사용해볼 수 있는 300 달러 무료 credit을 쓸 수 있습니다.
+우선 Quick Start로 가장 추천하는 방법은 gmail 계정을 가지고 계시면 
 
 == Create Cluster GKE
 
+Google Cloud Platform에서 300 달러 무료 credit으로 사용해 볼 수 있습니다.
 저도 무료 크레딧으로 테스트를 해봤습니다.
 
 == VSCode Jenkins X Extension
 
-VSCode 를 사용하시면 Jenkins X Extension 설치하고 Pipleline이 동작하는 것을 확인해볼 수 있습니다.
+참고로 VSCode 를 사용하시면 Jenkins X Extension 설치하고 Pipleline이 동작하는 것을 이 안에서 확인해볼 수가 있습니다.
 
 == Demo
 
@@ -315,9 +317,13 @@ Production에 promotion 해보는 과정입니다.
 그런데 시간이 꽤 걸리는 작업이라서 모두 다 완전히 못 할 수도 있을 것 같고요.
 최대한 한 번 진행해보겠습니다.
 
+== 동영상
+
+사실 이 동영상에 모든 과정이 다 들어있습니다. 나중에 참고해보시고요.
+
 == Demo - Deploy Spring Boot app
 
-먼저 gke cluster를 생성합니다.
+먼저 gke Kubernetes cluster를 생성합니다.
 jx create cluster gke
 
 
@@ -330,9 +336,7 @@ jx create cluster gke
 
 == Demo - Deploy Spring Boot app
 
-jx create spring -d web -d actuator
-
-jx create spring 하면 샘플로 Spring Boot 애플리케이션을 generate 할 수 있습니다.
+jx create spring 하면 샘플 Spring Boot 애플리케이션을 generate 해줍니다.
 
 == Demo - Deploy Spring Boot app
 
@@ -439,14 +443,14 @@ https://jenkins-x.io/contribute/roadmap/
 
 == Jenkins X Slack
 
-James Strachan님이 영국에 계셔서 우리나라 시간으로 오후 4시정도부터는 직접 답변을 주세요.
+James Strachan님이 영국에 계셔서 우리나라 시간으로 오후 4시정도부터는 직접 답변을 해주세요.
 
 
 == Try it out!
 
 관심있는 분들은 직접 실습 한 번 해보시고요 ,
-저희 JBUG 에서 이미 2차례나 hands-on을 했습니다.
-만약 정말 나도 꼭 같이 해보고 싶다 이런 분들은 연락을 주세요. 그럼 다시 하겠습니다.
+저희 JBUG 에서는 이미 2차례나 hands-on을 했습니다.
+만약 정말 나도 꼭 같이 해보고 싶다 이런 분들이 계시면 연락을 주세요. 그럼 다시 또 진행 하겠습니다.
 * https://jenkins-x.io/getting-started/
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
 
