@@ -38,4 +38,4 @@ slides.html?print-pdf
 === GongGam Seminar 17th, 2108
 
 
-image::gonggam_seminar_17th.jpg[GongGam Seminar 17th, 2108]
+image::gonggam_seminar_17th.png[GongGam Seminar 17th, 2108]
