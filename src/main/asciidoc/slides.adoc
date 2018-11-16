@@ -329,7 +329,7 @@ image::jenkinsfile.png[canvas,size=contain]
 
 [%notitle]
 [background-color="white"]
-== Built-in Packs
+== Draft Build Packs
 
 //* https://github.com/jenkins-x/draft-packs
 //** build packs used to bootstrap applications so they build and run on Kubernetes
@@ -340,7 +340,11 @@ image::draft-packs-maven.png[canvas,size=contain]
 
 [%notitle]
 [background-color="white"]
-== Built-in Packs
+== Draft Build Packs
+
+//* https://github.com/jenkins-x/draft-packs
+//** build packs used to bootstrap applications so they build and run on Kubernetes
+//* selected pack: /Users/tedwon/.jx/draft/packs/github.com/jenkins-x/draft-packs/packs/maven
 
 image::draft-packs.png[canvas,size=contain]
 
