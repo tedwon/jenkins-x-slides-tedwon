@@ -1,1 +1,1 @@
-mvn && open file:///Users/tedwon/jx/jenkins-x-slides-tedwon/target/generated-slides/slides.html
+mvn clean package && open file:///Users/tedwon/jx/jenkins-x-slides-tedwon/target/generated-slides/slides.html
