@@ -88,10 +88,10 @@ Code change => Pull Request => Review
 
 == What are the new changes?
 
-//[%step]
+[%step]
 * Move from on premise to cloud
-* Move from VMs to containers
-* Immutable infrastructure for DevOps
+* Move from BareMetal/VMs to containers
+//* Immutable infrastructure for DevOps
 * Kubernetes has become the defacto standard
 * Move from monoliths to microservices
 * Become high performing teams via CI/CD
@@ -99,12 +99,12 @@ Code change => Pull Request => Review
 
 == What are the new challenges?
 
-//[%step]
+[%step]
 * How do I migrate my applications to the cloud?
 * How do dev teams work with Kubernetes?
 * What do I need to start developing, building and deploying?
-* How do I wire everything together?
-* How do I access my applications?
+//* How do I wire everything together?
+* How can I see my applications log?
 
 
 == Started by James Strachan
@@ -141,7 +141,7 @@ image::twitter.png[canvas,size=contain]
 
 == Features of Jenkins X
 
-//[%step]
+[%step]
 * Automated CI and CD
 * Environment Promotion via GitOps
 * Pull Request Preview Environments
@@ -482,6 +482,7 @@ image::vscode.png[canvas,size=contain]
 
 == Demo
 
+[%step]
 * Creating GKE Kubernetes cluster with Jenkins X
 * Creating Spring Boot app
 * Creating code change
@@ -509,7 +510,7 @@ jx create spring -d web -d actuator
 
 == Demo - Deploy Spring Boot app
 
-//[%step]
+[%step]
 * Record: https://asciinema.org/a/210872
 * Automatically set up CI/CD pipelines for new + imported projects
 * Setups up git repository
