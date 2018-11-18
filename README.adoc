@@ -8,6 +8,13 @@ _Let's have a look at CI/CD best practices to help developers on the cloud platf
 
 * Check it out link:src/main/asciidoc/slides.adoc[slides.adoc]
 
+=== 개발자를 위한 공감 세미나 : 17번째 이야기
+
+I have a presentation for an introduction to Jenkins X at the Korea Developer Conference on 17th November 2018. 
+
+* http://www.hanbit.co.kr/store/education/edu_view.html?p_code=S8548956082
+* https://www.slideshare.net/tedwon/jenkins-x-automated-cicd-solution-for-cloud-native-applications-on-kubernetes-123332546[slideshare]
+
 
 === Demo
 
@@ -18,9 +25,6 @@ cd demo
 asciinema play -i 1 -s 5 209189.cast
 asciinema play -i 1 -s 5 Creating_GKE_Kubernetes_cluster_with_Jenkins_X_at_20181109.cast
 asciinema play -i 1 -s 5 Creating_Spring_Boot_Application_on_GKE_Kubernetes_cluster_with_Jenkins_X_at_20181109.cast
-
-
-
 ----
 
 === Convert the AsciiDoc to HTML slides

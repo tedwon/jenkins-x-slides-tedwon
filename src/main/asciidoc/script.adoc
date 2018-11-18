@@ -8,7 +8,7 @@ http://jx-slides.jx-production.35.243.86.163.nip.io/slides.html
 
 == Title
 
-안녕하세요~, 원종석 입니다.
+안녕하세요~ 반갑습니다, JBoss User Group의 원종석 이라고합니다.
 제가 이번 시간에는 Jenkins X 라는 오픈소스를 소개해드리려고 합니다.
 
 Jenkins X의 용도는 Kubernetes 상에서의 CI/CD practice를 도와주는 CI/CD 도구이자 솔루션이라고 할 수 있는데요.

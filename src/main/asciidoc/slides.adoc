@@ -6,9 +6,9 @@ automated CI/CD solution for cloud native applications on Kubernetes
 
 https://jenkins-x.io/
 
-@tedwon
+JBUG Korea
 
-//image::jbugkorea_logotype_600px.gif[background, size=cover]
+@tedwon
 
 
 :icons: font
@@ -20,35 +20,11 @@ https://jenkins-x.io/
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
+== At Korea Develper Conference
 
-//[%notitle]
-[transition=zoom]
-[background-color="red"]
-== Hello! I am
+http://www.hanbit.co.kr/store/education/edu_view.html?p_code=S8548956082[개발자를 위한 공감 세미나 : 17번째 이야기]
 
-//image::daum.jpeg[canvas,size=contain]
-image::daum.jpeg[]
-
-
-//[%notitle]
-//[transition=zoom]
-[background-color="red"]
-== Hello! I am
-
-//image::ollehtv.png[canvas,size=contain]
-image::ollehtv.png[]
-
-
-[transition=zoom]
-[background-color="red"]
-== I am a Red Hat JBoss Senior SME at Seoul
-
-Software Maintenance Engineer
-
-
-//[transition-speed=fast]
-//[background-color="red"]
-//== Software Maintenance Engineer
+Saturday, 17th November, 2018
 
 
 == Jenkins vs Jenkis X
@@ -56,24 +32,22 @@ Software Maintenance Engineer
 
 == Jenkins
 
-//[%step]
 * https://jenkins.io/
 
 image::jenkins.png[width="300"]
 
 
-[%notitle]
-[background-color="white"]
-== Jenkins
+//[%notitle]
+//[background-color="white"]
+//== Jenkins
 
-image::jenkins-install.png[canvas,size=contain]
+//image::jenkins-install.png[canvas,size=contain]
 
 //* source: https://stats.jenkins.io/
 
 
 == Jenkins X
 
-//[%step]
 * https://jenkins-x.io/
 
 image::jenkinsx.png[width="300"]
@@ -91,7 +65,6 @@ Code change => Pull Request => Review
 [%step]
 * Move from on premise to cloud
 * Move from BareMetal/VMs to containers
-//* Immutable infrastructure for DevOps
 * Kubernetes has become the defacto standard
 * Move from monoliths to microservices
 * Become high performing teams via CI/CD
@@ -103,12 +76,10 @@ Code change => Pull Request => Review
 * How do I migrate my applications to the cloud?
 * How do dev teams work with Kubernetes?
 * What do I need to start developing, building and deploying?
-//* How do I wire everything together?
 * How can I see my applications log?
 
 
 == Started by James Strachan
-
 
 [%notitle]
 [background-color="white"]
@@ -173,6 +144,7 @@ image::twitter.png[canvas,size=contain]
 * Azure Container Service
 * IBM Cloud Kubernetes Service
 * Oracle Cloud Container Engine
+* minikube, minishift
 
 https://jenkins-x.io/commands/jx_create_cluster/
 
@@ -256,33 +228,39 @@ https://jenkins-x.io/commands/jx_create_cluster/
 
 
 [%notitle]
+== Kubernetes Console
+
+image::kubernetes.png[canvas,size=contain]
+
+
+[%notitle]
 == Jenkins UI
 
-image::jenkins-env.png[background, size=cover]
+image::jenkins-env.png[canvas,size=contain]
 
 
 [%notitle]
 == Jenkins Blue Ocean UI
 
-image::jenkins-blue-ocean.png[background, size=cover]
+image::jenkins-blue-ocean.png[canvas,size=contain]
 
 
 [%notitle]
 == Jenkins Blue Ocean UI
 
-image::jenkins-blue-ocean-pipeline.png[background, size=cover]
+image::jenkins-blue-ocean-pipeline.png[canvas,size=contain]
 
 
 [%notitle]
 == Nexus UI
 
-image::nexus.png[background, size=cover]
+image::nexus.png[canvas,size=contain]
 
 
 [%notitle]
 == Monocular UI
 
-image::monocular.png[background, size=cover]
+image::monocular.png[canvas,size=contain]
 
 
 == How does Jenkins X help?
@@ -506,10 +484,6 @@ jx create cluster gke
 * Create Cluster GKE Record: 
 ** https://asciinema.org/a/210859
 
-----
-asciinema play -i 1 -s 5 Creating_GKE_Kubernetes_cluster_with_Jenkins_X_at_20181109.cast
-----
-
 
 == Demo - Deploy Spring Boot app
 
@@ -517,10 +491,6 @@ jx create spring -d web -d actuator
 
 
 == Demo - Deploy Spring Boot app
-
-----
-asciinema play -i 1 -s 5 Creating_Spring_Boot_Application_on_GKE_Kubernetes_cluster_with_Jenkins_X_at_20181109.cast
-----
 
 [%step]
 * Record: https://asciinema.org/a/210872
@@ -574,26 +544,30 @@ https://kubernetes.slack.com[kubernetes.slack.com]
 
 
 [%notitle]
-//[background-color="white"]
 == Jenkins X Slack
 
 image::slack.png[canvas,size=contain]
+
+
+== Jenkins X Roadmap
+
+* https://jenkins-x.io/contribute/roadmap/
 
 
 == Try it out!
 
 * https://jenkins-x.io/getting-started/
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
+* https://github.com/tedwon/jenkins-x-slides-tedwon
 
 image::jbugkorea_logotype_600px.gif[width="700"]
 
 
-//== Special Thanks to
+== Special Thanks to
 
-//Jungho Cha <jcha@redhat.com>
+Jungho Cha <jcha@redhat.com>
 
 
-//[background-color="navy"]
 == Thank you
 
 image::jbugkorea_logotype_600px.gif[width="700"]
@@ -627,4 +601,3 @@ https://www.facebook.com/groups/jbossusergroup/[facebook.com/groups/jbossusergro
 * https://jenkins-x.io/developing/git/#using-a-different-git-provider-for-environments
 * JBUG Jenkins X Hands-on https://goo.gl/oBbHxA
 * https://github.com/tedwon/jenkins-x-slides-tedwon
-* https://jenkins-x.io/contribute/roadmap/
