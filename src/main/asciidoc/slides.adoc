@@ -20,7 +20,7 @@ JBUG Korea
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
-== At Korea Develper Conference
+== At Korea Developer Conference
 
 http://www.hanbit.co.kr/store/education/edu_view.html?p_code=S8548956082[개발자를 위한 공감 세미나 : 17번째 이야기]
 
