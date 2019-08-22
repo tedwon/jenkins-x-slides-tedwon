@@ -14,14 +14,22 @@
       state: absent
       path: "~/.jx"
     ignore_errors: yes
-  - name: Clean up - stop & uninstall minikube
+  - name: Clean up - stop & uninstall minikube - step 1
     command: "{{ item }}"
     with_items:
     - minikube stop
+    ignore_errors: yes
+  - name: Clean up - stop & uninstall minikube - step 2
+    command: "{{ item }}"
+    with_items:
     - eval $(minikube docker-env -u)
     - minikube delete
-    - brew cask uninstall --force minikube
     ignore_errors: yes
+  - name: Clean up - stop & uninstall minikube - step 3
+    command: "{{ item }}"
+    with_items:
+    - brew cask uninstall --force minikube
+    ignore_errors: no
   - name: Clean up - rm -rf ~/.minikube
     file:
       state: absent
@@ -68,16 +76,17 @@
     command: brew tap jenkins-x/jx
   - name: Install - install jx step 2
     command: brew install jx
-  - name: Install - install kubectl
-    command: brew install kubernetes-cli
-  - name: Install - install kubernetes-helm
-    command: brew install kubernetes-helm
+  # - name: Install - install kubectl
+    # command: brew install kubernetes-cli
+  # - name: Install - install kubernetes-helm
+    # command: brew install kubernetes-helm
   - name: Install - hub
     command: brew install hub
   - name: Install - install minikube
     command: brew cask install minikube
-  - name: Install - install minishift
-    command: brew cask install minishift
+    ignore_errors: yes
+  # - name: Install - install minishift
+    # command: brew cask install minishift
   - name: jx
     command: jx
     args:
