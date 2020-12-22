@@ -20,7 +20,7 @@ JBUG Korea
 ifndef::imagesdir[:imagesdir: images]
 ifndef::sourcedir[:sourcedir: ../../main/java]
 
-== At Korea Developer Conference
+== At Korean Developers Conference
 
 http://www.hanbit.co.kr/store/education/edu_view.html?p_code=S8548956082[개발자를 위한 공감 세미나 : 17번째 이야기]
 
@@ -209,7 +209,7 @@ https://jenkins-x.io/commands/jx_create_cluster/
 
 == Helm Chart
 
-* Helm Chart is a packaging format. 
+* Helm Chart is a packaging format.
 * A chart is a collection of files that describe a related set of Kubernetes resources.
 ----
 ~/demo/charts/demo(master) » tree .
@@ -412,7 +412,7 @@ brew tap jenkins-x/jx
 brew install jx
 
 linux:
-curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.467/jx-darwin-amd64.tar.gz | tar xzv 
+curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.467/jx-darwin-amd64.tar.gz | tar xzv
 sudo mv jx /usr/local/bin
 ----
 
@@ -471,7 +471,7 @@ image::vscode.png[canvas,size=contain]
 * Promoting to Production
 
 //[%notitle,background-iframe="https://www.youtube.com/embed/kPes3rvT1UM"]
-//== Demo Video: jx create spring 
+//== Demo Video: jx create spring
 
 
 == Demo - Deploy Spring Boot app
@@ -481,7 +481,7 @@ jx create cluster gke
 
 == Demo - Deploy Spring Boot app
 
-* Create Cluster GKE Record: 
+* Create Cluster GKE Record:
 ** https://asciinema.org/a/210859
 
 
